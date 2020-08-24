@@ -9,7 +9,7 @@ import NextButton from "../components/NextButton";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import One from "../components/One";
 import Two from "../components/Two";
-import Three from "../components/Three";
+import Three from "../components/Three"; 
 import Four from "../components/Four";
 import Five from "../components/Five";
 import Six from "../components/Six";
