@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     image:{
         aspectRatio: 1 / 1,
         //width: 100,
-        height: '45%',
+        height: '70%',
         borderRadius: 20,
         //alignSelf: "center"
     },
