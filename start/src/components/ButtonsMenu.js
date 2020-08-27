@@ -2,7 +2,6 @@ import React from "react";
 import { Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
 
 const ButtonsMenu = ({title, navigate}) => {
-    //console.log({navigate});
     return <TouchableOpacity onPress = {navigate}>
      <Image style ={styles.image} source = {require("../../assets/alice.jpg")}/>
         <Text style={styles.text}>{title}</Text>

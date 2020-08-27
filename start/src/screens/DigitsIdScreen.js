@@ -9,7 +9,7 @@ import NextButton from "../components/NextButton";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import One from "../components/One";
 import Two from "../components/Two";
-import Three from "../components/Three"; 
+import Three from "../components/Three";
 import Four from "../components/Four";
 import Five from "../components/Five";
 import Six from "../components/Six";
@@ -17,21 +17,19 @@ import Seven from "../components/Seven";
 import Eight from "../components/Eight";
 import Nine from "../components/Nine";
 
-
-
 const patterns = [
-  { name: <One isNaked={false}></One>},
-  { name: <Two isNaked={false}></Two>},
-  { name: <Three isNaked={false}></Three>},
-  { name: <Four isNaked={false}></Four>},
-  { name: <Five isNaked={false}></Five>},
-  { name: <Six isNaked={false}></Six>},
-  { name: <Seven isNaked={false}></Seven>},
-  { name: <Eight isNaked={false}></Eight>},
-  { name: <Nine isNaked={false}></Nine>},
+    { name: <One isNaked={true}></One>},
+    { name: <Two isNaked={true}></Two>},
+    { name: <Three isNaked={true}></Three>},
+    { name: <Four isNaked={true}></Four>},
+    { name: <Five isNaked={true}></Five>},
+    { name: <Six isNaked={true}></Six>},
+    { name: <Seven isNaked={true}></Seven>},
+    { name: <Eight isNaked={true}></Eight>},
+    { name: <Nine isNaked={true}></Nine>},
 ];
 
-const LearningDigitsScreen = ({navigation}) => {
+const DigitsIdScreen = ({navigation}) => {
 
     const [stage, setStage] = useState(patterns[0]);
     const [counter, setCounter] = useState(0);
@@ -103,4 +101,4 @@ const styles = StyleSheet.create({
 }
 });
 
-export default LearningDigitsScreen;
+export default DigitsIdScreen;

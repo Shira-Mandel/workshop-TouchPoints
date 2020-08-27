@@ -14,7 +14,6 @@ import WrongLineHorizontal from "./WrongLineHorizontal";
 const CirclesId = () => {
   const [counter, setCounter] = useState(2);
   const [rewardState, setRewardState] = useState('rest');
-  console.log({rewardState});
 
     return <View style={{alignItems: 'center', display: 'flex',height: '100%', width: '100%', position: 'relative'}}>
          { /*<View style={{position: 'relative', height: '80%', width: '60%'}}>*/}

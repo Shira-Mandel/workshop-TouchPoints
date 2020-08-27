@@ -7,18 +7,27 @@ import * as Animatable from 'react-native-animatable';
 import Confetti from "../animations/Confetti";
 
 const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
 
-const One = ({onPress}) => {
+const One = ({onPress, isNaked}) => {
     const [counter, setCounter] = useState(1);
     const [ isPress, setIsPress ] = useState(false);
     const [rewardState, setRewardState] = useState('rest');
         
 
     return <View style={styles.mainContainer}>
-        <ImageBackground style={styles.bgimage} source={require("../../assets/kid1.png")} resizeMode="contain">
+        <ImageBackground style={styles.bgimage} source={
+            isNaked ? rewardState == 'reward' ? require("../../assets/kid1.png") : require("../../assets/number1.png") : require("../../assets/kid1.png")} 
+            resizeMode="contain"
+            >
             <Confetti rewardState={rewardState}/>
-            <Point unpressedStyle={styles.button} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
+            <Point 
+            unpressedStyle={isNaked? styles.transButton : styles.button} 
+            pressedStyle={isNaked? styles.button : {}}
+            setCounter={() => setCounter(counter - 1)} 
+            setRewardState={(rewardState) => setRewardState('reward')} 
+            count={counter}/>
         </ImageBackground>
     </View>
     {/*return <View style={styles.mainContainer}>
@@ -37,29 +46,26 @@ const styles = StyleSheet.create({
         position: 'relative'
     },
     mainContainer: {
-        width: '100%',
-        display: 'flex',
+        width: windowWidth,
+        height: windowHeight,
+        //display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        flex: 1,
     },
-    bgimage: {
-        position: "relative",
-        //alignSelf: "center",
-        //justifyContent: "center",
-        //top: normalize(10),
-        marginTop: isMobile ? '2%' : '6%',
-        //padding: "5%",
-        borderRadius: 20,
-        height: hp('80%'),
-        width: wp('60%'),
-        //flex: 1,
-        shadowColor: "#36393d",
-        shadowOffset: { width: 1 },
-        //elevation: 20,
-        shadowRadius: 5,
-        shadowOpacity: 1,
-        direction: 'ltr',
-    },
+      bgimage:{
+        flex: 1,
+          position: "relative",
+          marginTop: "2%",
+          borderRadius: 20,
+          height: hp('85%'),
+          width: isMobile? wp('55%') : wp('90%'),
+          shadowColor: "#36393d",
+          shadowOffset: { width: 1 },
+          shadowRadius: 5,
+          shadowOpacity: 1,
+          direction: 'ltr',
+      },
     button: {
         position: "absolute",
         backgroundColor: "black",
@@ -69,6 +75,16 @@ const styles = StyleSheet.create({
         left: isMobile? '60%' : '65%',
         top: isMobile? '8%' : '8%'
 
+      },
+      transButton: {
+        position: "absolute",
+        backgroundColor: "yellow",
+        opacity: 1,
+        aspectRatio: 1 / 1,
+        height: '13%',
+        borderRadius: normalize(35),
+        left: isMobile? '60%' : '65%',
+        top: isMobile? '8%' : '8%'
       },
       wrong: {
         position: "absolute",

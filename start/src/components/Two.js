@@ -7,18 +7,32 @@ import Point from "./Point";
 import Confetti from "../animations/Confetti";
 
 const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
 
-function Two() {
+const Two = ({onPress, isNaked}) => {
     const [counter, setCounter] = useState(2);
     const [ isPress, setIsPress ] = useState(false);
     const [rewardState, setRewardState] = useState('rest');
 
     return <View style={styles.mainContainer}>
-        <ImageBackground style={styles.bgimage} source={require("../../assets/kid2.png")} resizeMode="contain">
+        <ImageBackground style={styles.bgimage} source={
+            isNaked ? rewardState == 'reward' ? require("../../assets/kid2.png") : require("../../assets/number2.png") : require("../../assets/kid2.png")} resizeMode="contain">
         <Confetti rewardState={rewardState}/>
-        <Point unpressedStyle={styles.button1} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
-        <Point unpressedStyle={styles.button2} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
+        <Point 
+            unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
+            pressedStyle={isNaked? styles.button1 : {}}
+            setCounter={() => setCounter(counter - 1)} 
+            setRewardState={(rewardState) => setRewardState('reward')} 
+            count={counter}/>
+        <Point 
+            unpressedStyle={isNaked? styles.transButton2 : styles.button2} 
+            pressedStyle={isNaked? styles.button2 : {}}
+            setCounter={() => setCounter(counter - 1)} 
+            setRewardState={(rewardState) => setRewardState('reward')} 
+            count={counter}/>
+        {/* <Point unpressedStyle={styles.button1} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/> */}
+        {/* <Point unpressedStyle={styles.button2} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/> */}
         </ImageBackground>
     </View>
     
@@ -28,35 +42,32 @@ function Two() {
 const styles = StyleSheet.create({
     mainContainer: {
         width: '100%',
+        height: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    container: {
-        height: hp('80%'), 
-        width: wp('60%'), 
-        flex: 1, 
-        position: 'relative'
+    mainContainer: {
+        width: windowWidth,
+        height: windowHeight,
+        //display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
     },
-    bgimage:{
-        position: "relative",
-        //alignSelf: "center",
-        //justifyContent: "center",
-        //top: normalize(10),
-        marginTop: isMobile ? '2%' : '6%',
-        //padding: "5%",
-        borderRadius: 20,
-        height: hp('80%'),
-        width: wp('60%'),
-        //flex: 1,
-        shadowColor: "#36393d",
-        shadowOffset: { width: 1 },
-        //elevation: 20,
-        shadowRadius: 5,
-        shadowOpacity: 1,
-        direction: 'ltr',
-
-    },
+      bgimage:{
+        flex: 1,
+          position: "relative",
+          marginTop: "2%",
+          borderRadius: 20,
+          height: hp('85%'),
+          width: isMobile? wp('55%') : wp('90%'),
+          shadowColor: "#36393d",
+          shadowOffset: { width: 1 },
+          shadowRadius: 5,
+          shadowOpacity: 1,
+          direction: 'ltr',
+      },
     image: {
         position: "absolute",
         aspectRatio: 1 / 1,
@@ -77,6 +88,24 @@ const styles = StyleSheet.create({
       button2: {
         position: "absolute",
         backgroundColor: "black",
+        borderRadius: normalize(35),
+        left: isMobile ? '27%' : '13%',
+        top: isMobile ? '70%' : '70%',
+        width: isMobile ? 40 : 75,
+        height: isMobile ? 40 : 75,
+      },
+      transButton1: {
+        position: "absolute",
+        backgroundColor: "yellow",
+        borderRadius: normalize(35),
+        left: isMobile ? '24%' : '6%',
+        top: isMobile ? "18%" : '18%',
+        width: isMobile ? 40 : 75,
+        height: isMobile ? 40 : 75,
+      },
+      transButton2: {
+        position: "absolute",
+        backgroundColor: "yellow",
         borderRadius: normalize(35),
         left: isMobile ? '27%' : '13%',
         top: isMobile ? '70%' : '70%',
