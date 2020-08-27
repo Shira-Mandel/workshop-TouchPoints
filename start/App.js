@@ -31,7 +31,7 @@ const Stack = createStackNavigator()
  function MyStack() {
    return (
      <Stack.Navigator initialRouteName="Home" screenOptions= {{title: 'דף הבית', headerStyle:
-     {backgroundColor: 'pink', height: 30},headerTintColor: 'black', headerTitleAlign: "center",
+     {backgroundColor: 'pink', height: 60},headerTintColor: 'black', headerTitleAlign: "center",
     headerTitleStyle:{fontWeight: 'bold' },}}>
        <Stack.Screen name="Home" component={HomeScreen} options={{title: 'דף הבית'}}/>
        <Stack.Screen name="Intro" component={IntroScreen} options={{title: 'מבוא'}}/>
