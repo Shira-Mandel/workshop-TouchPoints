@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 //import {TouchableOpacity} from "react-native-gesture-handler";
-import { Button, StyleSheet, View,TouchableOpacity, ImageBackground} from "react-native";
+import { Button, StyleSheet, View, Dimensions, ImageBackground} from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import normalize from "react-native-normalize";
@@ -17,7 +17,8 @@ import Seven from "../components/Seven";
 import Eight from "../components/Eight";
 import Nine from "../components/Nine";
 
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height - 60;
 
 const patterns = [
   { name: <One isNaked={false}></One>},
