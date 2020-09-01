@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Text, Dimensions, View, Image, TouchableOpacity} from "react-native";
 import * as Animatable from 'react-native-animatable/';
-import moneyFront from '../../assets/money-front.png';
-import moneyBack from '../../assets/money-back.png';
 import { IconButton } from "react-native-paper";
 import normalize from "react-native-normalize";
 

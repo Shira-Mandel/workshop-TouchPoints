@@ -5,21 +5,11 @@ import { IconButton } from "react-native-paper";
 import { Ionicons,Feather } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
 
-const images = [
-  {source: require("../../../assets/circle.png")},
-  {source: require("../../../assets/circle.png")}
 
-]
 const Circle = ({style, count, setCounter, setRewardState, flag}) => {
     const [isPress, setIsPress] = useState(false);
-    const [image, setImage] = useState(images[0].source);
 
     useEffect(() => {
-      
-      if (isPress)
-      {
-        setImage(images[1].source);
-      }
       if (count == 0)
       {
         setRewardState();
