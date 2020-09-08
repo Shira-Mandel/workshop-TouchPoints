@@ -19,7 +19,7 @@ const MemoryCircle = () => { //צריך לשנות - להוריד את העיג�
   const [rewardState, setRewardState] = useState('rest');
 
 return <View style={styles.mainContainer}>
-        <ImageBackground style={styles.bgimage} source={require("../../../assets/CircleHead2.png")} resizeMode="contain">
+        <ImageBackground style={styles.bgimage} source={rewardState == 'reward' ? require("../../../assets/CircleHead2.png") : require("../../../assets/CircleHead.png")} resizeMode="contain">
             <Confetti rewardState={rewardState}/>
            <Text style = {styles.Text}>לחצו על הנקודות המתאימות  </Text>
           <Point unpressedStyle={styles.button1} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>

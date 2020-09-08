@@ -21,7 +21,7 @@ const MemoryLine = () => {
 
 
   return <View style={styles.mainContainer}>
-  <ImageBackground style={styles.bgimage} source={require("../../../assets/swing.jpg")} resizeMode="contain">
+      <ImageBackground style={styles.bgimage} source={rewardState == 'reward' ? require("../../../assets/LineSwing2.png") : require("../../../assets/LineSwing.png")} resizeMode="contain">
       <Confetti rewardState={rewardState}/>
       <Text style = {styles.Text}>לחצו על הנקודות המתאימות  </Text>
       <Point unpressedStyle={styles.button1} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
@@ -65,29 +65,28 @@ button1: {
 position: "absolute",
 backgroundColor: "black",
 borderRadius: normalize(35),
-left: isMobile ? '80%' : '6%',
-top: isMobile ? '65%' : '18%',
-width: isMobile ? 40 : 75,
-height: isMobile ? 40 : 75,
+left: isMobile ? '83%' : '6%',
+top: isMobile ? '63%' : '18%',
+width: isMobile ? 50 : 75,
+height: isMobile ? 50 : 75,
 },
-
 button2: {
 position: "absolute",
 backgroundColor: "black",
 borderRadius: normalize(35),
 left: isMobile ? '45%' : '6%',
-top: isMobile ? '65%' : '18%',
-width: isMobile ? 40 : 75,
-height: isMobile ? 40 : 75,
+top: isMobile ? '63%' : '18%',
+width: isMobile ? 50 : 75,
+height: isMobile ? 50 : 75,
 },
 button3: {
 position: "absolute",
 backgroundColor: "black",
 borderRadius: normalize(35),
-left: isMobile ? '7%' : '6%',
-top: isMobile ? '65%' : '18%',
-width: isMobile ? 40 : 75,
-height: isMobile ? 40 : 75,
+left: isMobile ? '6%' : '6%',
+top: isMobile ? '63%' : '18%',
+width: isMobile ? 50 : 75,
+height: isMobile ? 50 : 75,
 }
 });
 

@@ -23,8 +23,8 @@ const LineHorizontal = ({style, count, setCounter, setRewardState, flag}) => {
       setIsPress(true);
       setCounter();
     }} disabled={isPress}>
-      <Ionicons name="md-remove" size={200} color={isPress&& flag ? 'green' : 'black'}/>
-      {/* <Image style={style} source = {image}/> */}
+     <Ionicons name="md-remove" size={200} color={isPress&& flag ? 'green' : 'black'}/>
+      {/* <Image style={style} source = {require("../../../assets/window.png")}/> */}
   </TouchableOpacity>
 }
 export default LineHorizontal;
