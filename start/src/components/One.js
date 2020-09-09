@@ -28,71 +28,38 @@ const One = ({isRight, isAdd, onPress, isNaked}) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        height: hp('80%'), 
-        width: wp('60%'), 
-        flex: 1, 
-        position: 'relative'
-    },
-    mainContainer: {
-        width: windowWidth,
-        height: windowHeight,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    },
       bgimage:{
         flex: 1,
         position: "relative",
-        marginTop: "2%",
+        marginTop: "5%",
         borderRadius: 20,
-        height: hp('85%'),
-        width: isMobile? wp('55%') : wp('90%'),
+        height: "100%",
+        aspectRatio: 1/1,
         shadowColor: "#36393d",
         shadowOffset: { width: 1 },
         shadowRadius: 5,
         shadowOpacity: 1,
         direction: 'ltr',
-        alignSelf: "center",
-        right: "5%"
+        alignSelf: "center"
       },
     button: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '13%',
+        height: '15%',
         borderRadius: normalize(35),
-        left: isMobile? '57%' : '57%',
-        top: isMobile? '5%' : '5%'
+        left: "60%",
+        top: "5.2%"
 
       },
       transButton: {
         position: "absolute",
         backgroundColor: "yellow",
-        opacity: 1,
         aspectRatio: 1 / 1,
-        height: '13%',
+        height: '15%',
         borderRadius: normalize(35),
-        left: isMobile? '57%' : '57%',
-        top: isMobile? '5%' : '5%'
-      },
-      wrong: {
-        position: "absolute",
-        backgroundColor: "black",
-        aspectRatio: 1 / 1,
-        height: '13%',
-        borderRadius: normalize(35),
-        left: isMobile? '60%' : '80%',
-        top: isMobile? '8%' : '8%'
-      },
-      wrong2: {
-        position: "absolute",
-        backgroundColor: "black",
-        aspectRatio: 1 / 1,
-        height: '13%',
-        borderRadius: normalize(35),
-        left: isMobile? '60%' : '80%',
-        top: isMobile? '8%' : '8%'
+        left: "60%",
+        top: "5.2%"
       },
       addContainer: {
         position: "absolute",
@@ -104,11 +71,10 @@ const styles = StyleSheet.create({
         left: isMobile? "52%" : "54%",
     },
     bgimageAdd: {
-        right: "10%",
-        marginTop: "10%",
-        height: "85%",
-        width: "100%",
-        shadowColor: "#36393d",
+      right: "15%",
+      //aspectRatio: 1/1,
+      height: "95%",
+      shadowColor: "#36393d",
     },
     addContainerLeft: {
         position: "absolute",

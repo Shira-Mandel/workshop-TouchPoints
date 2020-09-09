@@ -35,6 +35,7 @@ export default class NumbersLine extends React.Component
             width: isMobile? "100%" : "100%",
             top: "102%",
             flexDirection: "row",
+            zIndex: 1
         },
         number: {
               height: "100%",
@@ -44,8 +45,8 @@ export default class NumbersLine extends React.Component
         one: {
             height: "80%", 
             width: "75%", 
-            zIndex: 1,
-            marginTop: "5%"
+            // zIndex: 1,
+            marginTop: "10%"
         },
         two: {
             height: "100%", 
@@ -82,13 +83,15 @@ export default class NumbersLine extends React.Component
             zIndex: 1
         },
         eight: {
-            height: "100%", 
+            height: "80%", 
             width: "100%", 
-            zIndex: 1
+            zIndex: 1,
+            top: "7%"
         },
         nine: {
             height: "100%", 
             width: "100%", 
-            zIndex: 1
+            zIndex: 1,
+            bottom: "7%"
         },
       });

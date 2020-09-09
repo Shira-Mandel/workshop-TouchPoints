@@ -9,11 +9,13 @@ import NextButton from "../components/NextButton";
 import OneTwins from "../components/twins/OneTwins";
 import Confetti from "../animations/Confetti";
 import AddingPair from "../components/AddingPair";
+import NumbersLine from "../components/NumbersLine";
+
 
 
 const AddingDiffDigitsScreen = ({navigation, route}) => {
-    const [first, setFirst] = useState(route.params.arr[0].first);
-    const [second, setSecond] = useState(route.params.arr[0].second);
+    //const [first, setFirst] = useState(route.params.arr[0].first);
+    //const [second, setSecond] = useState(route.params.arr[0].second);
     const [counter, setCounter] = useState(0);
     const [rewardState, setRewardState] = useState('rest');
     const [isDisabled, setIsDisabled] = useState(false);
@@ -23,7 +25,7 @@ const AddingDiffDigitsScreen = ({navigation, route}) => {
     <ImageBackground style={styles.bgimage} source={require("../../assets/addingFace.jpg")} resizeMode="contain"> 
         <Confetti rewardState={rewardState}/>
         <HomeButton onPress= {() => {navigation.navigate('Home')}}/>
-        <AddingPair isDisabled={isDisabled} setIsDisabled={() => setIsDisabled(true)} isFirstBigger={route.params.arr[counter].flag} first={first} second={second} setReward={() => setRewardState('reward')} result={route.params.arr[counter].value}/>
+        <AddingPair isDisabled={isDisabled} setIsDisabled={() => setIsDisabled(true)} isFirstBigger={route.params.arr[counter].flag} first={route.params.arr[counter].first} second={route.params.arr[counter].second} setReward={() => setRewardState('reward')} result={route.params.arr[counter].value}/>
         <NextButton onPress= {() => {
             if (counter >= 4)
             {
@@ -31,13 +33,14 @@ const AddingDiffDigitsScreen = ({navigation, route}) => {
             }
             else
             {
-                setFirst(route.params.arr[counter + 1].first);
-                setSecond(route.params.arr[counter + 1].second);
+                //setFirst(route.params.arr[counter + 1].first);
+                //setSecond(route.params.arr[counter + 1].second);
                 setCounter(counter + 1);
                 setRewardState('rest');
                 setIsDisabled(false)
             }
         }}/>
+        <NumbersLine result={route.params.arr[counter].value.toString()} setRewardState={() => setRewardState('reward')}/>
         </ImageBackground>
         </View>
 };

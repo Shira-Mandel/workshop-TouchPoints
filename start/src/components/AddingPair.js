@@ -31,16 +31,16 @@ const AddingPair = ({isDisabled, setIsDisabled, isFirstBigger, first, second, se
          {second}
          </TouchableOpacity>
          </View>
-        <NumbersLine result={result.toString()} setRewardState={() => {
+        {/* <NumbersLine result={result.toString()} setRewardState={() => {
             setReward();
-            }}/>
+            }}/> */}
     </View>
 }
 
 const styles = StyleSheet.create({
     mainContainer: {
-        width: windowWidth,
-        height: windowHeight,
+        // width: windowWidth,
+        // height: windowHeight,
         flex: 1,
         position:'relative',
     },

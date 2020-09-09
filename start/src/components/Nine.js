@@ -14,9 +14,8 @@ const Nine = ({isRight, isAdd, onPress, isNaked}) => {
   const [ isPress, setIsPress ] = useState(false);
   const [rewardState, setRewardState] = useState('rest');
       
-  return <View style={isAdd? isRight? styles.addContainerLeft  : styles.addContainer : styles.mainContainer}>
-    <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
-        isNaked ? rewardState == 'reward' ? isAdd ? require("../../assets/number9.png") : require("../../assets/kid9.png") : require("../../assets/number9.png") : require("../../assets/kid9.png")} resizeMode="contain">
+  return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
+        isNaked ? rewardState == 'reward' ? require("../../assets/kid9.png") : require("../../assets/number9.png") : isAdd ? require("../../assets/number9.png") : rewardState == 'reward' ? require("../../assets/kid9.png") : require("../../assets/kid-point9.png")} resizeMode="contain">
     <Confetti rewardState={rewardState}/>
     <Point 
         unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
@@ -73,197 +72,183 @@ const Nine = ({isRight, isAdd, onPress, isNaked}) => {
         setRewardState={(rewardState) => setRewardState('reward')} 
         count={counter}/>
     </ImageBackground>
-  </View>
 }
 
 const styles = StyleSheet.create({
-    container: {
-        height: hp('80%'), 
-        width: wp('60%'), 
-        flex: 1, 
-        position: 'relative'
-    },
-    mainContainer: {
-      width: windowWidth,
-      height: windowHeight,
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex: 1,
-  },
     bgimage:{
       flex: 1,
-        position: "relative",
-        marginTop: "2%",
-        borderRadius: 20,
-        height: hp('85%'),
-        width: isMobile? wp('55%') : wp('90%'),
-        shadowColor: "#36393d",
-        shadowOffset: { width: 1 },
-        shadowRadius: 5,
-        shadowOpacity: 1,
-        direction: 'ltr',
+      position: "relative",
+      marginTop: "1%",
+      height: "95%",
+      aspectRatio: 1/1,
+      shadowColor: "#36393d",
+      shadowOffset: { width: 1 },
+      shadowRadius: 5,
+      shadowOpacity: 1,
+      direction: 'ltr',
+      alignSelf: "center"
     },
     button1: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "38%",
-        left: "20%"
+        top: "16%",
+        left: "22%"
       },
       button2: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "45%",
-        left: "20%"
+        top: "6%",
+        left: "33.5%"
       }, 
       button3: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "55%",
-        left: "20%"
+        top: "-1%",
+        left: "48%"
       },
       button4: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "62%",
-        left: "20%"
+        top: "35.5%",
+        left: "33%"
       },
       button5: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "70%",
-        left: "20%"
+        top: "43%",
+        left: "36%"
       },
        button6: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "38%",
-        left: "80%"
+        top: "25%",
+        left: "66%"
       },
       button7: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "45%",
-        left: "80%"
+        top: "32.8%",
+        left: "68%"
       },
       button8: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "55%",
-        left: "80%"
+        top: "87%",
+        left: "48%"
       },
       button9: {
         position: "absolute",
         backgroundColor: "black",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "70%",
-        left: "80%"
+        top: "87%",
+        left: "55%"
       },
       transButton1: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "38%",
-        left: "20%"
+        top: "16%",
+        left: "22%"
       },
       transButton2: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "45%",
-        left: "20%"
+        top: "6%",
+        left: "33.5%"
       }, 
       transButton3: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "55%",
-        left: "20%"
+        top: "-1%",
+        left: "48%"
       },
       transButton4: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "62%",
-        left: "20%"
+        top: "35.5%",
+        left: "33%"
       },
       transButton5: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "70%",
-        left: "20%"
+        top: "43%",
+        left: "36%"
       },
       transButton6: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "38%",
-        left: "80%"
+        top: "25%",
+        left: "66%"
       },
       transButton7: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "45%",
-        left: "80%"
+        top: "32.8%",
+        left: "68%"
       },
       transButton8: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "55%",
-        left: "80%"
+        top: "87%",
+        left: "48%"
       },
       transButton9: {
         position: "absolute",
         backgroundColor: "yellow",
         aspectRatio: 1 / 1,
-        height: '6%',
+        height: '9%',
         borderRadius: normalize(35),
-        top: "70%",
-        left: "80%"
+        top: "87%",
+        left: "55%"
       },
       addContainer: {
         position: "absolute",
@@ -275,10 +260,8 @@ const styles = StyleSheet.create({
         left: isMobile? "52%" : "54%",
     },
     bgimageAdd: {
-        marginTop: "10%",
-        height: "85%",
-        width: "100%",
-        shadowColor: "#36393d",
+      aspectRatio: 1/1,
+      shadowColor: "#36393d",
     },
     addContainerLeft: {
       position: "absolute",

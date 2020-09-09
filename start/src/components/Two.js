@@ -38,32 +38,18 @@ const Two = ({isRight, isAdd, onPress, isNaked}) => {
 
 
 const styles = StyleSheet.create({
-    mainContainer: {
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    mainContainer: {
-        width: windowWidth,
-        height: windowHeight,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    },
       bgimage:{
         flex: 1,
-          position: "relative",
-          marginTop: "2%",
-          borderRadius: 20,
-          height: hp('85%'),
-          width: isMobile? wp('55%') : wp('90%'),
-          shadowColor: "#36393d",
-          shadowOffset: { width: 1 },
-          shadowRadius: 5,
-          shadowOpacity: 1,
-          direction: 'ltr',
+        position: "relative",
+        marginTop: "1%",
+        borderRadius: 20,
+        height: "95%",
+        aspectRatio: 1/1,
+        shadowColor: "#36393d",
+        shadowOffset: { width: 1 },
+        shadowRadius: 5,
+        shadowOpacity: 1,
+        direction: 'ltr',
         alignSelf: "center"
       },
     image: {
@@ -78,36 +64,36 @@ const styles = StyleSheet.create({
         position: "absolute",
         backgroundColor: "black",
         borderRadius: normalize(35),
-        left: '21.2%',
+        left: '11%',
         top: '12.3%',
-        height: "16%",
+        height: "18%",
         aspectRatio: 1/1
       },
       button2: {
         position: "absolute",
         backgroundColor: "black",
         borderRadius: normalize(35),
-        left: '21%',
-        top: isMobile? "61.7%" : '61%',
-        height: "16%",
+        left: '11%',
+        top: "65.4%",
+        height: "18%",
         aspectRatio: 1/1
       },
       transButton1: {
         position: "absolute",
         backgroundColor: "yellow",
         borderRadius: normalize(35),
-        left: '21.2%',
+        left: '11%',
         top: '12.3%',
-        height: "16%",
+        height: "18%",
         aspectRatio: 1/1
       },
       transButton2: {
         position: "absolute",
         backgroundColor: "yellow",
         borderRadius: normalize(35),
-        left: '21%',
-        top: isMobile? "58%" : '61%',
-        height: "16%",
+        left: '11%',
+        top: "65.4%",
+        height: "18%",
         aspectRatio: 1/1
       },
       addContainer: {
@@ -120,10 +106,10 @@ const styles = StyleSheet.create({
         left: isMobile? "52%" : "54%",
     },
     bgimageAdd: {
-        marginTop: "10%",
-        height: "85%",
-        width: "100%",
-        shadowColor: "#36393d",
+      marginTop: "2%",
+      aspectRatio: 1/1,
+      shadowColor: "#36393d",
+      left: "10%"
     },
     addContainerLeft: {
       position: "absolute",

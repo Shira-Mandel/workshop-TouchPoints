@@ -13,12 +13,26 @@ const Crocodiles = ({isLeftBigger, setReward, reward}) => {
     const [isLeftComplete, setIsLeftComplete] = useState(false);
     const [isRightComplete, setIsRightComplete] = useState(false);
     const [imageSource, setImageSource] = useState("");
+//     x 257.6666564941406
+// y 218.3333282470703
+// =============
+// x 533.3333282470703
+// y 117.33332824707031
+    // const minX = isMobile? 250 : 420
+    // const minY = isMobile? 210 : 230
+    // const maxX = isMobile? 540 : 600
+    // const maxY = isMobile? 
+//     812
+// 375
+// 1080
+// 810
+    
 
     if (reward == 'rest') {
         return <View style={{height: "100%", width: "100%"}}>
-        <View style={{alignSelf: "center", marginTop: isMobile? "15%" : "20%", height: "30%", width: "40%", borderWidth: 1}}/>
+        <View style={{alignSelf: "center", marginTop: "15%", height: "35%", width: "40%", borderWidth: 1}}/>
     <Draggable shouldReverse={true} x={windowWidth * 0.6} y={windowHeight * 0.58} onDragRelease={(event, gestureState) => {
-        if (gestureState.moveX >= 420 && gestureState.moveX <= 600 && gestureState.moveY >= 235 && gestureState.moveY <= 460 && isLeftBigger) {
+        if (gestureState.moveX >= (windowWidth * 0.22) && gestureState.moveX <= (windowWidth * 0.65) && gestureState.moveY >= (windowHeight * 0.34) && gestureState.moveY <= (windowHeight * 0.54) && isLeftBigger) {
             setReward();
             setImageSource(require("../../assets/croc-right.png"));
             setIsLeftComplete(true);
@@ -27,7 +41,7 @@ const Crocodiles = ({isLeftBigger, setReward, reward}) => {
         <Image resizeMode="contain" style={styles.image} source={require("../../assets/croc-right.png")}/>
     </Draggable>
     <Draggable shouldReverse={true} x={windowWidth * 0.02} y={windowHeight * 0.58} onDragRelease={(event, gestureState) => {
-        if (gestureState.moveX >= 420 && gestureState.moveX <= 600 && gestureState.moveY >= 235 && gestureState.moveY <= 460 && !isLeftBigger) {
+        if (gestureState.moveX >= (windowWidth * 0.22) && gestureState.moveX <= (windowWidth * 0.65) && gestureState.moveY >= (windowHeight * 0.34) && gestureState.moveY <= (windowHeight * 0.54) && !isLeftBigger) {
             setReward();
             setImageSource(require("../../assets/croc-left.png"));
             setIsRightComplete(true);
@@ -40,7 +54,7 @@ const Crocodiles = ({isLeftBigger, setReward, reward}) => {
 
     if (isLeftComplete || isRightComplete) {
         return <View style={{height: "100%", width: "100%"}}>
-        <View style={{alignSelf: "center", marginTop: isMobile? "15%" : "20%", borderWidth: 1, height: "30%", width: "40%"}}>
+        <View style={{alignSelf: "center", marginTop: "15%", borderWidth: 1, height: "35%", width: "40%"}}>
         <Image resizeMode="contain" style={styles.imageAfter} source={imageSource}/>
             </View>
     </View>
@@ -57,7 +71,7 @@ const styles = StyleSheet.create({
         aspectRatio: 1/1,
         height: isMobile? 220 : 400,
         alignSelf: "center",
-        bottom: "30%"
+        bottom: isMobile? "40%" : "30%"
     }
 });
 

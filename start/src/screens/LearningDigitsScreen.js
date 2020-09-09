@@ -34,12 +34,12 @@ const patterns = [
 
 const LearningDigitsScreen = ({ navigation, route }) => {
 
-    const [stage, setStage] = useState(patterns[route.params.init]);
+    //const [stage, setStage] = useState(patterns[route.params.init]);
     const [counter, setCounter] = useState(route.params.init);
 
     return <ImageBackground style={styles.bgimage} source={require("../../assets/playground.jpg")} resizeMode="cover"> 
             <HomeButton onPress={() => {navigation.navigate('Home')}}/>
-            {stage.name}
+            {patterns[counter].name}
             <NextButton onPress={() => {
               if (counter >= patterns.length - 1)
               {
@@ -47,7 +47,7 @@ const LearningDigitsScreen = ({ navigation, route }) => {
               }
               else
               {
-                  setStage(patterns[counter + 1]);
+                  //setStage(patterns[counter + 1]);
                   setCounter(counter + 1)
             }}}/>
         </ImageBackground>

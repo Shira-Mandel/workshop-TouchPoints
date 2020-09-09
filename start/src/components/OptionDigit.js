@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {View,  Image, StyleSheet, TouchableOpacity, Dimensions} from "react-native";
+import {View,  Image, StyleSheet, Dimensions} from "react-native";
+import {TouchableOpacity} from "react-native-gesture-handler";
 import * as Animatable from 'react-native-animatable';
 
 const windowWidth = Dimensions.get('window').width;
@@ -34,7 +35,7 @@ export default class OptionDigit extends React.Component
             zIndex: 1, 
             borderWidth: 2, 
             height: "100%", 
-            width: "11.1%"
+            width: "11.1%",
         },
         button: {
             height: "100%", 

@@ -75,8 +75,9 @@ const styles = StyleSheet.create({
         position: "relative",
         marginTop: "5%",
         borderRadius: 20,
-        height: hp('75%'),
-        width: wp('80%'),
+        height: "100%",
+        aspectRatio: 1/1,
+        //width: wp('80%'),
         shadowColor: "#36393d",
         shadowOffset: { width: 1 },
         shadowRadius: 5,
@@ -90,8 +91,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "8%",
-        left: isMobile? "42%" : "36%",
+        top: "9%",
+        left: isMobile? "32%" : "32%",
       },
       button2: {
         position: "absolute",
@@ -99,8 +100,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "8%",
-        left: isMobile? "52%" : "53%"
+        top: "9%",
+        left: isMobile? "53%" : "53%"
       }, 
       button3: {
         position: "absolute",
@@ -108,8 +109,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "8%",
-        left: isMobile? "60%" : "66%"
+        top: "9%",
+        left: "73%"
       },
       button4: {
         position: "absolute",
@@ -117,8 +118,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "35%",
-        left: isMobile? "41%" : "36%"
+        top: "43%",
+        left: "31%"
       },
       button5: {
         position: "absolute",
@@ -126,8 +127,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "65%",
-        left: isMobile? "41%" : "36%"
+        top: "80%",
+        left: "31%"
       },
       transButton1: {
         position: "absolute",
@@ -135,8 +136,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "8%",
-        left: isMobile? "42%" : "36%",
+        top: "9%",
+        left: isMobile? "32%" : "32%",
       },
       transButton2: {
         position: "absolute",
@@ -144,8 +145,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "8%",
-        left: isMobile? "52%" : "53%"
+        top: "9%",
+        left: isMobile? "53%" : "53%"
       }, 
       transButton3: {
         position: "absolute",
@@ -153,8 +154,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "8%",
-        left: isMobile? "60%" : "66%"
+        top: "9%",
+        left: "73%"
       },
       transButton4: {
         position: "absolute",
@@ -162,8 +163,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "35%",
-        left: isMobile? "41%" : "36%"
+        top: "43%",
+        left: "31%"
       },
       transButton5: {
         position: "absolute",
@@ -171,8 +172,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "65%",
-        left: isMobile? "41%" : "36%"
+        top: "80%",
+        left: "31%"
       },
       addContainer: {
         position: "absolute",
@@ -184,9 +185,8 @@ const styles = StyleSheet.create({
         left: isMobile? "52%" : "54%",
     },
     bgimageAdd: {
-        marginTop: "10%",
-        height: "85%",
-        width: "100%",
+        margin: "2%",
+        aspectRatio: 1/1,
         shadowColor: "#36393d",
     },
     addContainerLeft: {

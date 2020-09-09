@@ -19,13 +19,13 @@ const patterns = [
 ];
 
 const CirclesLinesIdScreen = ({navigation}) => {
-    const [stage, setStage] = useState(patterns[0]);
+    //const [stage, setStage] = useState(patterns[0]);
     const [counter, setCounter] = useState(0);
 
 
     return <ImageBackground style={styles.bgimage} source={require("../../assets/playground.jpg")} resizeMode="cover"> 
         <HomeButton onPress={() => {navigation.navigate('Home')}}/>
-        {stage.name}
+        {patterns[counter].name}
         <NextButton onPress={() => {
             if (counter >= patterns.length - 1)
             {
@@ -33,7 +33,7 @@ const CirclesLinesIdScreen = ({navigation}) => {
             }
             else
             {
-                setStage(patterns[counter + 1]); {/*add limit to the counter, when counter reaches the end of the list go to previous screen*/}
+                //setStage(patterns[counter + 1]); {/*add limit to the counter, when counter reaches the end of the list go to previous screen*/}
                 setCounter(counter + 1)
             }
         }}/>
