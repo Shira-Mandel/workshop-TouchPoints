@@ -12,7 +12,7 @@ export default class WrongLineHorizontal extends React.Component {
       return (
           <Animatable.View style={this.props.style} ref={this.handleViewRef}>
               <TouchableOpacity style={styles.button} onPress = {this.shake}>
-          <Ionicons name="md-remove" size={100} color={'black'}/>
+          <Ionicons name="md-remove" size={150} color={'black'}/>
       </TouchableOpacity>
         </Animatable.View>
       );

@@ -1,8 +1,9 @@
 import React,{useEffect, useState} from "react";
-import { Dimensions, StyleSheet, View, Image, TouchableOpacity} from "react-native";
+import { Dimensions, StyleSheet, View,TouchableOpacity, Image} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { IconButton } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
+import {} from "react-native-gesture-handler";
 import normalize from "react-native-normalize";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -19,7 +20,7 @@ const LineHorizontal = ({style, count, setCounter, setRewardState, flag}) => {
       }
     }, [isPress]);
 
-    return <TouchableOpacity style={style/*{position: 'absolute', zIndex: 1, backgroundColor: 'black'}*/} onPress = {() => {
+    return <TouchableOpacity style={style}/*{position: 'absolute', zIndex: 1, backgroundColor: 'black'}*/ onPress = {() => {
       setIsPress(true);
       setCounter();
     }} disabled={isPress}>

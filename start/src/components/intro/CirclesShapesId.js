@@ -15,24 +15,18 @@ const windowWidth = Dimensions.get('window').width;
 const isMobile = windowWidth <= 812 && true;
 
 const CirclesShapesId = () => {
-  const [counter, setCounter] = useState(5);
+  const [counter, setCounter] = useState(3);
   const [rewardState, setRewardState] = useState('rest');
 
   return <View style={styles.mainContainer}>
            <Confetti rewardState={rewardState}/>
            <Text style = {styles.Text}>מצאו את העיגולים </Text>
-           {/* <ImageBackground style={styles.bgimagewindow} source={rewardState == 'reward' ? require("../../../assets/window.png") : require("../../../assets/window.png")} resizeMode="contain">
-           <LineHorizontal style={styles.LineHorizontal1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           <LineHorizontal style={styles.LineHorizontal2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           <LineHorizontal style={styles.LineHorizontal3} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           </ImageBackground>
-           <ImageBackground style={styles.bgimagehouse} source={rewardState == 'reward' ? require("../../../assets/house.png") : require("../../../assets/house.png")} resizeMode="contain">
-           <LineHorizontal style={styles.LineHorizontal4} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           <LineHorizontal style={styles.LineHorizontal5} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           </ImageBackground> */}
            <ImageBackground style={styles.bgimagebicycle} source={rewardState == 'reward' ? require("../../../assets/bicycle.png") : require("../../../assets/bicycle.png")} resizeMode="contain">
-           {/* <Circle style={styles.Circle1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           <Circle style={styles.Circle2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/> */}
+           <Circle style={styles.Circle1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
+           <Circle style={styles.Circle2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
+          </ImageBackground> 
+          <ImageBackground style={styles.bgimagesun} source={rewardState == 'reward' ? require("../../../assets/sun.png") : require("../../../assets/sun.png")} resizeMode="contain">
+           <Circle style={styles.Circle3} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
           </ImageBackground> 
             </View>
 }
@@ -50,70 +44,29 @@ const styles = StyleSheet.create({
 },
 mainContainer: {
   width: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  //display: 'flex',
+  flex: 1,
+  //justifyContent: 'center',
+  //alignItems: 'center',
+  borderWidth: 10
  // {alignItems: 'center', display: 'flex',height: '100%', width: '100%', position: 'relative'}
 },
-bgimagewindow: {
-  position: "relative",
-  //alignSelf: "center",
-  //justifyContent: "center",
-  //top: normalize(10),
-  marginTop: isMobile ? '2%' : '6%',
-  //padding: "5%",
-  borderRadius: 20,
-  left: isMobile ? '25%' : '6%',
-  top: isMobile ? "0%" : '18%',
-  width: isMobile ? "100%" : 75,
-  height: isMobile ?'100%' : 75,
-  //flex: 1,
-  shadowColor: "#36393d",
-  shadowOffset: { width: 1 },
-  //elevation: 20,
-  shadowRadius: 5,
-  shadowOpacity: 1,
-  direction: 'ltr',
- // resizeMode:"contain"
-},
-bgimagehouse: {
-  position: "absolute",
-  //alignSelf: "center",
-  //justifyContent: "center",
-  //top: normalize(10),
-  marginTop: isMobile ? '2%' : '6%',
-  //padding: "5%",
-  borderRadius: 20,
-  left: isMobile ? '-20%' : '6%',
-  top: isMobile ? "16%" : '18%',
-  width: isMobile ? "100%" : 75,
-  height: isMobile ?'80%' : 75,
-  //flex: 1,
-  shadowColor: "#36393d",
-  shadowOffset: { width: 1 },
-  //elevation: 20,
-  shadowRadius: 5,
-  shadowOpacity: 1,
-  direction: 'ltr',
-},
 bgimagebicycle: {
-  position: "absolute",
-  //alignSelf: "center",
-  //justifyContent: "center",
-  //top: normalize(10),
-  marginTop: isMobile ? '2%' : '6%',
-  //padding: "5%",
+ position:"absolute",
   borderRadius: 20,
-  left: isMobile ? '0%' : '6%',
+  height: "75%",
+  aspectRatio: 1/1,
+  left: isMobile ? '5%' : '6%',
   top: isMobile ? "20%" : '18%',
-  width: isMobile ? "100%" : 75,
-  height: isMobile ?'100%' : 75,
-  //flex: 1,
-  shadowColor: "#36393d",
-  shadowOffset: { width: 1 },
-  //elevation: 20,
-  shadowRadius: 5,
-  shadowOpacity: 1,
+  direction: 'ltr',
+},
+bgimagesun: {
+ position:"absolute",
+  borderRadius: 20,
+  height: "90%",
+  aspectRatio: 1/1,
+  left: isMobile ? '50%' : '6%',
+  top: isMobile ? "20%" : '18%',
   direction: 'ltr',
 },
 LineHorizontal1: {
@@ -154,29 +107,26 @@ LineHorizontal5: {
 },
 Circle1: {
   position: "absolute",
-  //backgroundColor: "black",
-  //aspectRatio: 1 /1,
-  //width:50,
-  height: 100,
-  width: 100,
-//  borderRadius: normalize(2000),
-  top: 150,
-  left: 20,
- // zIndex:1
+  //height: 100,
+  width: isMobile? "100%" : "10%",
+  top: isMobile? "39%" : "10%",
+  left: isMobile? "5%" : "80%",
+ 
 
 },
 Circle2: {
   position: "absolute",
-  //backgroundColor: "black",
-  //aspectRatio: 1 /1,
-  //width:50,
-  height: 100,
-  width: 100,
-//  borderRadius: normalize(2000),
-  top: 20,
-  left: 400,
- // zIndex:1
-  
+  //height: 100,
+  width: isMobile? "100%" : "10%",
+  top: isMobile? "40%" : "10%",
+  left: isMobile? "58%" : "80%",
+},
+Circle3: {
+  position: "absolute",
+  //height: 100,
+  width: isMobile? "100%" : "10%",
+  top: isMobile? "30%" : "10%",
+  left: isMobile? "37%" : "80%",
 },
 });
 

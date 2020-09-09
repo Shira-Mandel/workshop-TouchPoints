@@ -39,17 +39,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center'
   },
-  list1: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: "center",
-  },
-  list2: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: "center",
-    marginBottom: "10%"
-  },
   infoIcon: {
       fontSize: normalize(30),
       alignSelf: "flex-start"
@@ -61,6 +50,7 @@ const styles = StyleSheet.create({
   },
   bgimage: {
     position: "relative",
+    
     flex: 1
   }
 });

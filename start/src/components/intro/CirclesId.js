@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { TouchableWithoutFeedback, Button, Text, StyleSheet, View, Image, ImageBackground, TouchableOpacity} from "react-native";
+import { Dimensions, Button, Text, StyleSheet, View, Image, ImageBackground, TouchableOpacity} from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import RewardsComponent from 'react-native-rewards';
 import normalize from "react-native-normalize";
@@ -10,129 +10,72 @@ import LineVertical from "./LineVertical";
 import Circle from "./Circle";
 import Confetti from "../../animations/Confetti";
 import WrongLineHorizontal from "./WrongLineHorizontal";
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const isMobile = windowWidth <= 812 && true;
 
 const CirclesId = () => {
   const [counter, setCounter] = useState(2);
   const [rewardState, setRewardState] = useState('rest');
 
-    return <View style={{alignItems: 'center', display: 'flex',height: '100%', width: '100%', position: 'relative'}}>
-         { /*<View style={{position: 'relative', height: '80%', width: '60%'}}>*/}
-          <Confetti rewardState={rewardState}/>
-           <Text style = {styles.Text}>מצאו את העיגולים </Text>
-           <WrongLineHorizontal style={styles.LineHorizontal1}/>
-           <WrongLineHorizontal style={styles.LineHorizontal2}/>
-           <WrongLineHorizontal style={styles.LineHorizontal3}/>
-           <LineVertical style={styles.LineVertical1}/>
-           <LineVertical style={styles.LineVertical2}/>
-           <Circle style={styles.Circle1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           <Circle style={styles.Circle2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-            </View>
+  return <View style={{height: windowHeight, width: windowWidth, position: 'relative'}}>
+  <Confetti rewardState={rewardState}/>
+   <Text style = {styles.Text}>מצאו את העיגולים </Text>
+   <WrongLineHorizontal style={styles.LineHorizontal1}/>
+   <WrongLineHorizontal style={styles.LineHorizontal2}/>
+   <WrongLineHorizontal style={styles.LineHorizontal3}/>
+   <LineVertical style={styles.LineVertical1}/>
+   <LineVertical style={styles.LineVertical2}/>
+   <Circle style={styles.Circle1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
+   <Circle style={styles.Circle2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
+    </View>
 }
 
 const styles = StyleSheet.create({
-    Text: {
-        fontSize:15,
-        color: "#002266", 
-        fontWeight: 'bold', 
-    },
-    bgimage:{
-        position: "relative",
-        alignSelf: "center",
-        justifyContent: "center",
-        marginTop: "6%",
-        padding: "5%",
-        borderRadius: 20,
-        height: hp('80%'),
-        width: wp('60%'),
-        flex: 1,
-        shadowColor: "#36393d",
-        shadowOffset: { width: 1 },
-        elevation: 20,
-        shadowRadius: 5,
-        shadowOpacity: 1,
-
-    },
-    Circle1: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        height: 100,
-        width: 100,
-      //  borderRadius: normalize(2000),
-        top: 150,
-        left: 20,
-       // zIndex:1
-
-      },
-      LineHorizontal2: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        height: 100,
-        //borderRadius: normalize(2000),
-        top: 10,
-        left: 150
-
-      },
-      LineHorizontal3: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        height: 100,
-      //  borderRadius: normalize(2000),
-        top: 200,
-        left: 450
-
-      },
-      Circle2: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        height: 100,
-        width: 100,
-      //  borderRadius: normalize(2000),
-        top: 20,
-        left: 400,
-       // zIndex:1
-        
-      },
-      LineVertical2: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        //height: 4,
-        //width: 15,
-      //  borderRadius: normalize(2000),
-        top: 180,
-        left: 0
-      },
-      LineHorizontal1: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        height: 100,
-      //  borderRadius: normalize(2000),
-        top: 100,
-        left: 50
-      },
-      LineVertical1: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        //height: 100,
-        //width: 15,
-      //  borderRadius: normalize(2000),
-        top: 170,
-        left: 300
-      },
-
+Text: {
+fontSize: normalize(8),
+color: "#002266", 
+fontWeight: 'bold',
+textAlign: "center"
+},
+LineHorizontal1: {
+position: "absolute",
+height: 100,
+top: isMobile? "60%" : "70%",
+left: isMobile? "10%" : "20%"
+},
+LineHorizontal2: {
+position: "absolute",
+height: 100,
+top: isMobile? "7%" : "10%",
+left: isMobile? "50%" : "70%",
+},
+LineHorizontal3: {
+position: "absolute",
+height: 100,
+top: isMobile? "40%" : "40%",
+left: isMobile? "40%" : "50%"
+},
+LineVertical1: {
+position: "absolute",
+top: isMobile? "10%" : "30%",
+left: isMobile? "30%" : "8%",
+},
+LineVertical2: {
+position: "absolute",
+top: isMobile? "50%" : "30%",
+left: isMobile? "80%" : "8%",
+},
+Circle1: {
+position: "absolute",
+top: isMobile? "30%" : "30%",
+left: isMobile? "5%" : "8%",
+},
+Circle2: {
+position: "absolute",
+top: isMobile? "2%" : "10%",
+left: isMobile? "70%" : "80%",
+},
 });
 
 export default CirclesId;
