@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
 import { Text, StyleSheet, View, TouchableOpacity,ImageBackground, Image} from "react-native";
-import ButtonsMenu from "../components/HomeButton"
-import { Col, Row, Grid } from "react-native-easy-grid";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
 import NextButton from "../components/NextButton";
@@ -14,27 +12,21 @@ const patterns = [
 ];
 
 const CirclesLinesInShapesIdScreen = ({navigation}) => {
-    const [stage, setStage] = useState(patterns[0]);
     const [counter, setCounter] = useState(0);
     
     return <ImageBackground style={styles.bgimage} source={require("../../assets/playground.jpg")} resizeMode="cover"> 
-    <Grid>
-     <Row>
-        <HomeButton navigate= {() => navigation.navigate('Home')}/>
-        {stage.name}
-        <NextButton onPress= {() => {
+        <HomeButton onPress={() => navigation.navigate('Home')}/>
+        {patterns[counter].name}
+        <NextButton onPress={() => {
             if (counter >= patterns.length - 1)
             {
                 navigation.navigate('Intro');
             }
             else
             {
-                setStage(patterns[counter + 1]); {/*add limit to the counter, when counter reaches the end of the list go to previous screen*/}
                 setCounter(counter + 1)
             }
         }}/>
-        </Row>
-        </Grid>
         </ImageBackground>
 };
 
@@ -65,8 +57,7 @@ const styles = StyleSheet.create({
   },
   bgimage: {
     position: "relative",
-    //opacity: 0.7,
-    flex: 1,
+    flex: 1
   }
 });
 

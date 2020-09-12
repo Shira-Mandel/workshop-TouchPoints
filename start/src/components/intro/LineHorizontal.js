@@ -1,14 +1,16 @@
 import React,{useEffect, useState} from "react";
-import { Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
+import { Dimensions, StyleSheet, View, Image, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { IconButton } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const isMobile = windowWidth <= 812 && true;
 
 const LineHorizontal = ({style, count, setCounter, setRewardState, flag}) => {
 
   const [isPress, setIsPress] = useState(false);
-  //const [image, setImage] = useState(images[0].source);
 
     useEffect(() => {
       if (count == 0)

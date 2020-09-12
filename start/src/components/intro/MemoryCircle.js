@@ -19,7 +19,7 @@ const MemoryCircle = () => { //צריך לשנות - להוריד את העיג�
   const [rewardState, setRewardState] = useState('rest');
 
 return <View style={styles.mainContainer}>
-        <ImageBackground style={styles.bgimage} source={require("../../../assets/head.jpg")} resizeMode="contain">
+        <ImageBackground style={styles.bgimage} source={require("../../../assets/CircleHead2.png")} resizeMode="contain">
             <Confetti rewardState={rewardState}/>
            <Text style = {styles.Text}>לחצו על הנקודות המתאימות  </Text>
           <Point unpressedStyle={styles.button1} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
@@ -64,38 +64,38 @@ button1: {
     position: "absolute",
     backgroundColor: "black",
     borderRadius: normalize(35),
-    left: isMobile ? '40%' : '6%',
-    top: isMobile ? "35%" : '18%',
-    width: isMobile ? 40 : 75,
-    height: isMobile ? 40 : 75,
+    left: isMobile ? '12%' : '6%',
+    top: isMobile ? "45%" : '18%',
+    width: isMobile ? 45 : 75,
+    height: isMobile ? 45 : 75,
   },
 
   button2: {
     position: "absolute",
     backgroundColor: "black",
     borderRadius: normalize(35),
-    left: isMobile ? '40%' : '6%',
-    top: isMobile ? "50%" : '18%',
-    width: isMobile ? 40 : 75,
-    height: isMobile ? 40 : 75,
+    left: isMobile ? '12%' : '6%',
+    top: isMobile ? "58%" : '18%',
+    width: isMobile ? 45 : 75,
+    height: isMobile ? 45 : 75,
   },
   button3: {
       position: "absolute",
       backgroundColor: "black",
       borderRadius: normalize(35),
-      left: isMobile ? '77%' : '6%',
-      top: isMobile ? "50%" : '18%',
-      width: isMobile ? 40 : 75,
-      height: isMobile ? 40 : 75,
+      left: isMobile ? '73%' : '6%',
+      top: isMobile ? "45%" : '18%',
+      width: isMobile ? 45 : 75,
+      height: isMobile ? 45 : 75,
     },
     button4: {
         position: "absolute",
         backgroundColor: "black",
         borderRadius: normalize(35),
-        left: isMobile ? '77%' : '6%',
-        top: isMobile ? "35%" : '18%',
-        width: isMobile ? 40 : 75,
-        height: isMobile ? 40 : 75,
+        left: isMobile ? '73%' : '6%',
+        top: isMobile ? "58%" : '18%',
+        width: isMobile ? 45 : 75,
+        height: isMobile ? 45 : 75,
       },
 
 });

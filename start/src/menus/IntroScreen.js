@@ -1,40 +1,69 @@
-import React from "react";
-import { Text, StyleSheet, View, ImageBackground} from "react-native";
+import React, {useState} from "react";
+import { Dimensions, StyleSheet, View, Image} from "react-native";
 import ButtonsMenu from "../components/ButtonsMenu"
-import { Entypo } from "@expo/vector-icons";
-import { Col, Row, Grid } from "react-native-easy-grid";
 import normalize from "react-native-normalize";
+import Balloons from "../animations/Balloons";
+import BackButton from "../components/BackButton"
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const isMobile = windowWidth <= 812 && true;
 
+const IntroScreen = ({navigation, route}) => {
+  React.useEffect(
+    () => navigation.addListener('focus', () => route.params.play()),
+    []
+  );
 
-const IntroScreen = ({navigation}) => {
-  return <ImageBackground style={styles.bgimage} source={require("../../assets/stars.png")} resizeMode="cover">
-    <Grid>
-  <Row style= {styles.list1}>
-    <ButtonsMenu title = "זיהוי קווים ועיגולים" navigate = {() => navigation.navigate('CirclesLinesId')}/>
-    <ButtonsMenu title = "זיהוי קווים ועיגולים מתוך שלל צורות" navigate = {() => navigation.navigate('CirclesLinesInShapesId')}/>
-  </Row>
-  <Row style={styles.list2}>
-    <ButtonsMenu title = "תומכי זכרון לקווים ועיגולים" navigate= {() => navigation.navigate('MemoryAid')}/>
-  </Row>
-</Grid>
-</ImageBackground>
+  return <View style={{height: '100%', width: '100%'}}>
+    <Image style={{zIndex: 1, height: "30%", width: '100%', alignSelf: "center"}} resizeMode="contain" source={require('../../assets/header.png')}/>
+    <ButtonsMenu resize="cover" source={require("../../assets/images/alice.jpg")} style={styles.buttonMenu1} title = "זיהוי קווים ועיגולים" navigate={() => {
+      route.params.pause();
+      navigation.navigate('CirclesLinesId')}}/>
+    <ButtonsMenu resize="cover" source={require("../../assets/images/alice.jpg")} style={styles.buttonMenu2} title = "זיהוי קווים ועיגולים מתוך שלל צורות" navigate = {() => {
+      route.params.pause();
+      navigation.navigate('CirclesLinesInShapesId')}}/>
+    <ButtonsMenu resize="cover" source={require("../../assets/images/alice.jpg")} style={styles.buttonMenu3} title = "תומכי זכרון לקווים ועיגולים" navigate={() => {
+      route.params.pause();
+      navigation.navigate('MemoryAid')}}/>
+  <Balloons style={styles.bgimage}/>
+  <BackButton onPress={() => navigation.goBack()}/>
+</View>
 };
 
 const styles = StyleSheet.create({
+  buttonMenu1: {
+    aspectRatio: 1 / 1,
+    height: '25%',
+    borderRadius: 20,
+    zIndex: 1,
+    borderWidth: 1,
+    left: isMobile? "25%" : "20%", 
+    top: "30%",
+    position: "absolute"
+  },
+  buttonMenu2: {
+    aspectRatio: 1 / 1,
+    height: '25%',
+    borderRadius: 20,
+    zIndex: 1,
+    borderWidth: 1,
+    left: isMobile? "65%" : "61%", 
+    top: "30%",
+    position: "absolute"
+  },
+  buttonMenu3: {
+    aspectRatio: 1 / 1,
+    height: '25%',
+    borderRadius: 20,
+    zIndex: 1,
+    borderWidth: 1,
+    left: isMobile? "45%" : "40%", 
+    top: isMobile? "62%" : "65%",
+    position: "absolute"
+  },
   text: {
     fontSize: 30,
     textAlign: 'center'
-  },
-  list1: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: "center",
-  },
-  list2: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: "center",
-    marginBottom: "10%"
   },
   infoIcon: {
       fontSize: normalize(30),

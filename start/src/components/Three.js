@@ -9,35 +9,49 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
 
-const Three = ({onPress, isNaked}) => {
+const Three = ({isRight, isAdd, onPress, isNaked, enableNext}) => {
     const [counter, setCounter] = useState(3);
     const [ isPress, setIsPress ] = useState(false);
     const [rewardState, setRewardState] = useState('rest');
         
-    return <View style={styles.mainContainer}>
-        <ImageBackground style={styles.bgimage} source={
-              isNaked ? rewardState == 'reward' ? require("../../assets/kid3.png") : require("../../assets/number3.png") : require("../../assets/kid3.png")} resizeMode="contain">
+    // return <View style={isAdd? isRight? styles.addContainerLeft  : styles.addContainer : styles.mainContainer}>
+    return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
+            isNaked ? rewardState == 'reward' ? isAdd ? require("../../assets/number3-normal.png") : require("../../assets/number3-normal.png") : require("../../assets/number3-normal.png") : require("../../assets/number3-normal.png")} resizeMode="contain">
         <Confetti rewardState={rewardState}/>
         <Point 
             unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
             pressedStyle={isNaked? styles.button1 : {}}
+            isAdd={isAdd}
             setCounter={() => setCounter(counter - 1)} 
-            setRewardState={(rewardState) => setRewardState('reward')} 
+            setRewardState={(rewardState) => {
+               if (enableNext != null) {
+                 enableNext();
+               }
+              setRewardState('reward')}} 
             count={counter}/>
         <Point 
             unpressedStyle={isNaked? styles.transButton2 : styles.button2} 
             pressedStyle={isNaked? styles.button2 : {}}
+            isAdd={isAdd}
             setCounter={() => setCounter(counter - 1)} 
-            setRewardState={(rewardState) => setRewardState('reward')} 
+            setRewardState={(rewardState) => {
+              if (enableNext != null) {
+                enableNext();
+              }
+              setRewardState('reward')}} 
             count={counter}/>
         <Point 
             unpressedStyle={isNaked? styles.transButton3 : styles.button3} 
+            isAdd={isAdd}
             pressedStyle={isNaked? styles.button3 : {}}
             setCounter={() => setCounter(counter - 1)} 
-            setRewardState={(rewardState) => setRewardState('reward')} 
+            setRewardState={(rewardState) => {
+              if (enableNext != null) {
+                enableNext();
+              }
+              setRewardState('reward')}} 
             count={counter}/>
         </ImageBackground>
-    </View>
 }
 
 const styles = StyleSheet.create({
@@ -50,7 +64,6 @@ const styles = StyleSheet.create({
     mainContainer: {
       width: windowWidth,
       height: windowHeight,
-      //display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
@@ -58,15 +71,17 @@ const styles = StyleSheet.create({
     bgimage:{
       flex: 1,
         position: "relative",
-        marginTop: "2%",
+        marginTop: "5%",
         borderRadius: 20,
-        height: hp('85%'),
-        width: isMobile? wp('55%') : wp('90%'),
+        height: "100%",
+        aspectRatio: 1/1,
+        //width: wp('80%'),
         shadowColor: "#36393d",
         shadowOffset: { width: 1 },
         shadowRadius: 5,
         shadowOpacity: 1,
         direction: 'ltr',
+        alignSelf: "center"
     },
     button1: {
         position: "absolute",
@@ -74,8 +89,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: isMobile? "22%" : "27%",
-        left: isMobile? "18%" : "9%",
+        top: "11%",
+        left: "27%",
       },
       button2: {
         position: "absolute",
@@ -83,8 +98,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: isMobile? "44%" : "44%",
-        left: isMobile? "12%" : "1%"
+        top: "43%",
+        left: "33%"
       },
       button3: {
         position: "absolute",
@@ -92,8 +107,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: isMobile? "71%" : "65%",
-        left: isMobile? "15%" : "7%"
+        top: "75%",
+        left: "27%"
       },
       transButton1: {
         position: "absolute",
@@ -101,8 +116,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: isMobile? "22%" : "27%",
-        left: isMobile? "18%" : "9%",
+        top: "11%",
+        left: "27%",
       },
       transButton2: {
         position: "absolute",
@@ -110,8 +125,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: isMobile? "44%" : "44%",
-        left: isMobile? "12%" : "1%"
+        top: "43%",
+        left: "33%"
       },
       transButton3: {
         position: "absolute",
@@ -119,9 +134,34 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: isMobile? "71%" : "65%",
-        left: isMobile? "15%" : "7%"
+        top: "75%",
+        left: "27%"
       },
+      addContainer: {
+        position: "absolute",
+        width: isMobile? "15%" : "25%",
+        aspectRatio: 1/1,
+        borderRadius: 150,
+        backgroundColor: "pink",
+        top: isMobile? "22%" : "22%",
+        left: isMobile? "52%" : "54%",
+    },
+    bgimageAdd: {
+        height: "100%",
+        //bottom: "10%",
+        left: isMobile? "0%" : "5%",
+        aspectRatio: 1/1,
+        shadowColor: "#36393d",
+    },
+    addContainerLeft: {
+      position: "absolute",
+      width: isMobile? "15%" : "25%",
+      aspectRatio: 1/1,
+      borderRadius: 150,
+      backgroundColor: "pink",
+      top: isMobile? "22%" : "22%",
+      left: isMobile? "32%" : "21%",
+  }
 });
 
 export default Three;

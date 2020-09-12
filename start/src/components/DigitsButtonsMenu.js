@@ -4,7 +4,7 @@ import { Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
 const DigitsButtonsMenu = ({title, navigation, digit}) => {
     return <TouchableOpacity onPress = {
         navigation.navigate('LearningDigits', {index: digit - 1})}>
-     <Image style ={styles.image} source = {require("../../assets/alice.jpg")}/>
+     <Image style ={styles.image} source = {require("../../assets/images/alice.jpg")}/>
         <Text style={styles.text}>{title}</Text>
   </TouchableOpacity>
 }

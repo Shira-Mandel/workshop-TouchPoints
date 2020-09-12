@@ -1,12 +1,8 @@
-import React, {useState, useEffect} from "react";
-//import {TouchableOpacity} from "react-native-gesture-handler";
+import React, {setProps, useState, useEffect} from "react";
 import { Button, StyleSheet, View,TouchableOpacity, ImageBackground} from "react-native";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import { Col, Row, Grid } from "react-native-easy-grid";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
 import NextButton from "../components/NextButton";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import One from "../components/One";
 import Two from "../components/Two";
 import Three from "../components/Three";
@@ -17,34 +13,45 @@ import Seven from "../components/Seven";
 import Eight from "../components/Eight";
 import Nine from "../components/Nine";
 
-const patterns = [
-    { name: <One isNaked={true}></One>},
-    { name: <Two isNaked={true}></Two>},
-    { name: <Three isNaked={true}></Three>},
-    { name: <Four isNaked={true}></Four>},
-    { name: <Five isNaked={true}></Five>},
-    { name: <Six isNaked={true}></Six>},
-    { name: <Seven isNaked={true}></Seven>},
-    { name: <Eight isNaked={true}></Eight>},
-    { name: <Nine isNaked={true}></Nine>},
-];
+const shuffleDeck = (array) => {
+  let i = array.length - 1;
+  for (; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+};
 
-const DigitsIdScreen = ({navigation}) => {
+const patterns = shuffleDeck([
+  <One isNaked={true}></One>,
+  <Two isNaked={true}></Two>,
+  <Three isNaked={true}></Three>,
+  <Four isNaked={true}></Four>,
+  <Five isNaked={true}></Five>,
+  <Six isNaked={true}></Six>,
+  <Seven isNaked={true}></Seven>,
+  <Eight isNaked={true}></Eight>,
+  <Nine isNaked={true}></Nine>,
+  ]);
 
-    const [stage, setStage] = useState(patterns[0]);
-    const [counter, setCounter] = useState(0);
+const DigitsIdScreen = ({navigation, route}) => {
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [counter, setCounter] = useState(0);
+  const Curr = patterns[counter].type;
 
     return <ImageBackground style={styles.bgimage} source={require("../../assets/playground.jpg")} resizeMode="cover"> 
             <HomeButton onPress={() => {navigation.navigate('Home')}}/>
-            {stage.name}
-            <NextButton onPress={() => {
-              if (counter >= patterns.length - 1)
+            <Curr isNaked={true} enableNext={() => setIsDisabled(false)}></Curr>
+            <NextButton disabled={isDisabled} onPress={() => {
+              if (counter >= 8)
               {
-                  navigation.navigate('LearningDigitsMenu');//in case of 9
+                  navigation.navigate('Home');//in case of 9
               }
               else
               {
-                  setStage(patterns[counter + 1]);
+                  setIsDisabled(true);
                   setCounter(counter + 1)
             }}}/>
         </ImageBackground>
@@ -76,22 +83,17 @@ const styles = StyleSheet.create({
       left: "2%"
   },
   points: {
-    //position: "absolute",
-    //opacity: 100,
     alignSelf: "center",
     backgroundColor: "black",
     aspectRatio: 1 / 1,
     height: '45%',
     top: "110%",
     left: "2%"
-    //opacity: 50
 },
   bgimage: {
     position: "relative",
     height: '100%',
     width: '100%',
-    //opacity: 0.7,
-    //flex: 1,
   },
   home: {
     position: "absolute",

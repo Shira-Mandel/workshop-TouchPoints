@@ -12,8 +12,8 @@ export default class LineVertical extends React.Component {
   
   render() {
     return (
-        <Animatable.View ref={this.handleViewRef}>
-            <TouchableOpacity style={this.props.style} onPress = {this.shake}>
+        <Animatable.View style={this.props.style} ref={this.handleViewRef}>
+            <TouchableOpacity onPress = {this.shake}>
           <Ionicons name="md-remove" size={100} color={'black'} style={{transform: [{rotate: '90deg'}]}}/>
     </TouchableOpacity>
       </Animatable.View>

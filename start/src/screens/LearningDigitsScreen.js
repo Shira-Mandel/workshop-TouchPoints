@@ -1,12 +1,9 @@
 import React, {useState, useEffect} from "react";
-//import {TouchableOpacity} from "react-native-gesture-handler";
 import { Button, StyleSheet, View, Dimensions, ImageBackground} from "react-native";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import { Col, Row, Grid } from "react-native-easy-grid";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
 import NextButton from "../components/NextButton";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import PreviousButton from "../components/PreviousButton";
 import One from "../components/One";
 import Two from "../components/Two";
 import Three from "../components/Three"; 
@@ -20,35 +17,44 @@ import Nine from "../components/Nine";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height - 60;
 
-const patterns = [
-  { name: <One isNaked={false}></One>},
-  { name: <Two isNaked={false}></Two>},
-  { name: <Three isNaked={false}></Three>},
-  { name: <Four isNaked={false}></Four>},
-  { name: <Five isNaked={false}></Five>},
-  { name: <Six isNaked={false}></Six>},
-  { name: <Seven isNaked={false}></Seven>},
-  { name: <Eight isNaked={false}></Eight>},
-  { name: <Nine isNaked={false}></Nine>},
-];
 
-const LearningDigitsScreen = ({navigation}) => {
+const LearningDigitsScreen = ({ navigation, route }) => {
+  const [counter, setCounter] = useState(route.params.init);
+  const [isDisabled, setIsDisabled] = useState(true);
 
-    const [stage, setStage] = useState(patterns[0]);
-    const [counter, setCounter] = useState(0);
+  const patterns = [
+    { name: <One isNaked={false} enableNext={() => setIsDisabled(false)}></One>},
+    { name: <Two isNaked={false} enableNext={() => setIsDisabled(false)}></Two>},
+    { name: <Three isNaked={false} enableNext={() => setIsDisabled(false)}></Three>},
+    { name: <Four isNaked={false} enableNext={() => setIsDisabled(false)}></Four>},
+    { name: <Five isNaked={false} enableNext={() => setIsDisabled(false)}></Five>},
+    { name: <Six isNaked={false} enableNext={() => setIsDisabled(false)}></Six>},
+    { name: <Seven isNaked={false} enableNext={() => setIsDisabled(false)}></Seven>},
+    { name: <Eight isNaked={false} enableNext={() => setIsDisabled(false)}></Eight>},
+    { name: <Nine isNaked={false} enableNext={() => setIsDisabled(false)}></Nine>},
+  ];
 
     return <ImageBackground style={styles.bgimage} source={require("../../assets/playground.jpg")} resizeMode="cover"> 
             <HomeButton onPress={() => {navigation.navigate('Home')}}/>
-            {stage.name}
-            <NextButton onPress={() => {
+            {patterns[counter].name}
+            <NextButton disabled={isDisabled} onPress={() => {
               if (counter >= patterns.length - 1)
               {
                   navigation.navigate('LearningDigitsMenu');//in case of 9
               }
               else
               {
-                  setStage(patterns[counter + 1]);
+                  setIsDisabled(true)
                   setCounter(counter + 1)
+            }}}/>
+            <PreviousButton onPress={() => {
+              if (counter < 0)
+              {
+                  navigation.navigate('LearningDigitsMenu');//in case of 9
+              }
+              else
+              {
+                  setCounter(counter - 1)
             }}}/>
         </ImageBackground>
 };
@@ -79,22 +85,17 @@ const styles = StyleSheet.create({
       left: "2%"
   },
   points: {
-    //position: "absolute",
-    //opacity: 100,
     alignSelf: "center",
     backgroundColor: "black",
     aspectRatio: 1 / 1,
     height: '45%',
     top: "110%",
     left: "2%"
-    //opacity: 50
 },
   bgimage: {
     position: "relative",
     height: '100%',
     width: '100%',
-    //opacity: 0.7,
-    //flex: 1,
   },
   home: {
     position: "absolute",

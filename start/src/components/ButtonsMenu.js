@@ -1,26 +1,28 @@
 import React from "react";
-import { Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
+import { Dimensions, Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const isMobile = windowWidth <= 812 && true;
 
-const ButtonsMenu = ({title, navigate}) => {
-    return <TouchableOpacity onPress = {navigate}>
-     <Image style ={styles.image} source = {require("../../assets/alice.jpg")}/>
-        <Text style={styles.text}>{title}</Text>
-        
-  </TouchableOpacity>
+const ButtonsMenu = ({style, title, navigate, source, resize}) => {
+    return <View style={style} >
+    <TouchableOpacity onPress={navigate}>
+     <Image style={{height: "100%", borderRadius: 20, width: "100%"}} source={source} resizeMode={resize}/>
+    </TouchableOpacity>
+     <Text style={styles.text}>{title}</Text>  
+     </View> 
+
 }
 const styles = StyleSheet.create({
     image:{
         aspectRatio: 1 / 1,
-        //width: 100,
-        height: '70%',
+        height: '50%',
         borderRadius: 20,
-        //alignSelf: "center"
     },
     text: {
-        justifyContent: "center",
-        alignSelf: "center",
-        fontSize: 20,
+        fontSize: isMobile? 14 : 25,
         fontWeight: "bold",
+        textAlign: "center",
     }
 });
 
