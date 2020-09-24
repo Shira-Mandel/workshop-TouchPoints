@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { StyleSheet, View, TouchableOpacity, Image, Dimensions} from "react-native";
 import ButtonsMenu from "../components/ButtonsMenu"
 import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
+import { BlurView } from 'expo-blur';
 import normalize from "react-native-normalize";
 import { Video, Audio } from 'expo-av';
 import One from "../components/One";
@@ -13,6 +14,8 @@ import Six from "../components/Six";
 import Seven from "../components/Seven";
 import Eight from "../components/Eight";
 import Nine from "../components/Nine";
+import LearningDigitsButton from "../components/LearningDigitsButton";
+import DiffDigitsButton from "../components/DiffDigitsButton";
 import Balloons from "../animations/Balloons";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -101,15 +104,14 @@ React.useEffect(
   <Image style={{zIndex: 1, height: "30%", width: '100%', alignSelf: "center"}} resizeMode="contain" source={require('../../assets/header.png')}/>
       <ButtonsMenu resize="cover" source={require("../../assets/images/joey.png")} style={styles.buttonMenu1} title="מבוא" navigate={() => 
         navigation.navigate('Intro', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})}/>
-      <ButtonsMenu resize="cover" source={require("../../assets/images/alice.jpg")} style={styles.buttonMenu2} title = "לימוד ספרות" navigate = {() => 
-        navigation.navigate('LearningDigitsMenu', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})}/>
-      <ButtonsMenu resize="cover" source={require("../../assets/images/alice2.png")} style={styles.buttonMenu3} title = "זיהוי ספרות" navigate = {() => {
+      <LearningDigitsButton onPress={() => navigation.navigate('LearningDigitsMenu', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})} style={styles.buttonMenu2}/>
+      <ButtonsMenu resize="cover" source={require("../../assets/images/digitsIDIcon.png")} style={styles.buttonMenu3} title = "שיום ספרות" navigate = {() => {
         setIsPlay(false);
         navigation.navigate('IdentifyDigits')}}/>
-      <ButtonsMenu resize="cover" source={require("../../assets/images/alice.jpg")} style={styles.buttonMenu4} title = "חיבור תאומים" navigate= {() => {
+      <ButtonsMenu resize="contain" source={require("../../assets/images/addTwinsIcon.png")} style={styles.buttonMenu4} title = "חיבור תאומים" navigate= {() => {
         setIsPlay(false);
         navigation.navigate('AddingTwins', {arr: shuffleDeck(twins)})}}/>
-      <ButtonsMenu resize="cover" source={require("../../assets/images/joey.png")} style={styles.buttonMenu5} title = "ספרות שונות" navigate= {() => 
+      <DiffDigitsButton style={styles.buttonMenu5} onPress={() => 
         navigation.navigate('AddingNumbers', {play: () => setIsPlay(true), pause: () => setIsPlay(false), arr: shuffleDeck(pairs)})}/>
         <TouchableOpacity style={styles.infoStyle} onPress={() => navigation.navigate('AppInfo', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})}>
          <MaterialCommunityIcons name="information" style={styles.icon}/>
@@ -127,9 +129,13 @@ styles = StyleSheet.create({
     height: '25%',
     borderRadius: 20,
     zIndex: 1,
-    borderWidth: 1,
+    borderColor: "grey",
+    borderWidth: 0.5,
     left: isMobile? "20%" : "10%", 
     top: "30%",
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute"
   },
   buttonMenu2: {
@@ -137,9 +143,12 @@ styles = StyleSheet.create({
     height: '25%',
     borderRadius: 20,
     zIndex: 1,
-    borderWidth: 1,
     left: isMobile? "45%" : "40%",
     top: "30%",
+    shadowColor: "#36393d",
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute",
   },
   buttonMenu3: {
@@ -147,9 +156,11 @@ styles = StyleSheet.create({
     height: '25%',
     borderRadius: 20,
     zIndex: 1,
-    borderWidth: 1,
     right: isMobile? "20%" : "10%", 
     top: "30%",
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute",
   },
   buttonMenu4: {
@@ -157,9 +168,12 @@ styles = StyleSheet.create({
     height: '25%',
     borderRadius: 20,
     zIndex: 1,
-    borderWidth: 1,
+    backgroundColor: "#537dc5",
     left: isMobile? "32%" : "25%",
     top: isMobile? "63%" : "65%",
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute",
   },
   buttonMenu5: {
@@ -167,9 +181,11 @@ styles = StyleSheet.create({
     height: '25%',
     borderRadius: 20,
     zIndex: 1,
-    borderWidth: 1,
     right: isMobile? "32%" : "25%",
     top: isMobile? "63%" : "65%",
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute",
   },
   text: {
@@ -201,5 +217,10 @@ styles = StyleSheet.create({
     bottom: isMobile? "20%" : "15%",
     left: "2%",
     zIndex: 1
-  }
+  },
+  text: {
+    fontSize: isMobile? 14 : 25,
+    fontWeight: "bold",
+    textAlign: "center",
+}
 });

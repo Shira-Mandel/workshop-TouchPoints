@@ -16,10 +16,10 @@ const IntroScreen = ({navigation, route}) => {
 
   return <View style={{height: '100%', width: '100%'}}>
     <Image style={{zIndex: 1, height: "30%", width: '100%', alignSelf: "center"}} resizeMode="contain" source={require('../../assets/header.png')}/>
-    <ButtonsMenu resize="cover" source={require("../../assets/images/alice.jpg")} style={styles.buttonMenu1} title = "שלב א" navigate={() => {
+    <ButtonsMenu resize="cover" source={require("../../assets/bigSmallIcon1.png")} style={styles.buttonMenu1} title = "שלב א" navigate={() => {
       route.params.pause();
       navigation.navigate('BigSmallDigit', {arr: route.params.arr})}}/>
-    <ButtonsMenu resize="cover" source={require("../../assets/images/alice.jpg")} style={styles.buttonMenu2} title = "שלב ב" navigate = {() => {
+    <ButtonsMenu resize="cover" source={require("../../assets/bigSmallIcon2.png")} style={styles.buttonMenu2} title = "שלב ב" navigate = {() => {
       route.params.pause();
       navigation.navigate('BigSmallDigit2', {arr: route.params.arr})}}/>
   <Balloons style={styles.bgimage}/>
@@ -33,8 +33,10 @@ const styles = StyleSheet.create({
     height: '25%',
     borderRadius: 20,
     zIndex: 1,
-    borderWidth: 1,
     left: isMobile? "25%" : "20%", 
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     top: "30%",
     position: "absolute"
   },
@@ -43,7 +45,9 @@ const styles = StyleSheet.create({
     height: '25%',
     borderRadius: 20,
     zIndex: 1,
-    borderWidth: 1,
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     left: isMobile? "65%" : "61%", 
     top: "30%",
     position: "absolute"

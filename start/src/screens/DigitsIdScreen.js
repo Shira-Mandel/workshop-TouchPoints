@@ -2,6 +2,7 @@ import React, {setProps, useState, useEffect} from "react";
 import { Button, StyleSheet, View,TouchableOpacity, ImageBackground} from "react-native";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
+import Hint from "../components/Hint";
 import NextButton from "../components/NextButton";
 import One from "../components/One";
 import Two from "../components/Two";
@@ -43,6 +44,7 @@ const DigitsIdScreen = ({navigation, route}) => {
 
     return <ImageBackground style={styles.bgimage} source={require("../../assets/playground.jpg")} resizeMode="cover"> 
             <HomeButton onPress={() => {navigation.navigate('Home')}}/>
+            <Hint currDigit={patterns[counter].type}/>
             <Curr isNaked={true} enableNext={() => setIsDisabled(false)}></Curr>
             <NextButton disabled={isDisabled} onPress={() => {
               if (counter >= 8)

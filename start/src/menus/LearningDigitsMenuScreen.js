@@ -58,6 +58,9 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     left: isMobile? "15%" : "15%", 
     top: isMobile? "30%" : "26%",
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute"
   },
   buttonMenu2: {
@@ -69,6 +72,9 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     left: isMobile? "35%" : "40%", 
     top: isMobile? "30%" : "26%",
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute"
   },
   buttonMenu3: {
@@ -80,6 +86,9 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     left: isMobile? "55%" : "65%", 
     top: isMobile? "30%" : "26%",
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute"
   },
   buttonMenu4: {
@@ -101,6 +110,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "grey",
     left: isMobile? "5%" : "40%", 
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     top: isMobile? "63%" : "50%", 
     position: "absolute"
   },
@@ -113,6 +125,9 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     left: isMobile? "25%" : "65%", 
     top: isMobile? "63%" : "50%", 
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute"
   },
   buttonMenu7: {
@@ -124,6 +139,9 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     left: isMobile? "45%" : "15%", 
     top: isMobile? "63%" : "74%", 
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute"
   },
   buttonMenu8: {
@@ -135,6 +153,9 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     left: isMobile? "65%" : "40%", 
     top: isMobile? "63%" : "74%", 
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute"
   },
   buttonMenu9: {
@@ -146,6 +167,9 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     left: isMobile? "85%" : "65%", 
     top: isMobile? "63%" : "74%", 
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
     position: "absolute"
   },
   text: {

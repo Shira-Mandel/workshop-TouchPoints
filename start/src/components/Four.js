@@ -9,11 +9,14 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true; 
 
-const Four = ({isRight, isAdd, onPress, isNaked, enableNext}) => {
+const Four = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
   const [counter, setCounter] = useState(4);
   const [ isPress, setIsPress ] = useState(false);
   const [rewardState, setRewardState] = useState('rest');
-     
+  if (disabled) {
+    return <ImageBackground style={styles.bgimageAdd} source={require("../../assets/number4.png")} resizeMode="contain">
+</ImageBackground>
+  }
      return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
       isNaked ? rewardState == 'reward' ? require("../../assets/kid4.png") : require("../../assets/number4.png") : isAdd ? require("../../assets/number4.png") : rewardState == 'reward' ? require("../../assets/kid4.png") : require("../../assets/kid-point4.png")} resizeMode="contain">
         <Confetti rewardState={rewardState}/>
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
       },
       transButton1: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -127,7 +130,7 @@ const styles = StyleSheet.create({
       },
       transButton2: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -136,7 +139,7 @@ const styles = StyleSheet.create({
       }, 
       transButton3: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
       },
       transButton4: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -164,6 +167,8 @@ const styles = StyleSheet.create({
     bgimageAdd: {
       top: "5%",
       aspectRatio: 1/1,
+      height: "98%",
+      marginLeft: "5%",
       shadowColor: "#36393d",
     },
     addContainerLeft: {

@@ -11,6 +11,7 @@ const isMobile = windowWidth <= 812 && true;
 
 const BigSmallDigitScreen2 = ({navigation, route}) => {
     const [counter, setCounter] = useState(0);
+    const [isDisabled, setIsDisabled] = useState(true);
     const [rewardState, setRewardState] = useState('rest');
 
     return <ImageBackground style={styles.bgimage} source={require("../../assets/lake.png")} resizeMode="stretch"> 
@@ -22,8 +23,8 @@ const BigSmallDigitScreen2 = ({navigation, route}) => {
          <View style={styles.addContainer}>
          {route.params.arr[counter].second}
          </View>
-        <Crocodiles isStage2={true} isLeftBigger={route.params.arr[counter].flag} setReward={() => setRewardState('reward')} reward={rewardState}/> 
-        <NextButton onPress= {() => {
+        <Crocodiles isStage2={true} isLeftBigger={route.params.arr[counter].flag} enableNext={() => setIsDisabled(false)} setReward={() => setRewardState('reward')} reward={rewardState}/> 
+        <NextButton disabled={isDisabled} onPress={() => {
             if (counter >= 4)
             {
                 navigation.navigate('Home');
@@ -31,6 +32,7 @@ const BigSmallDigitScreen2 = ({navigation, route}) => {
             else
             {
                 setCounter(counter + 1);
+                setIsDisabled(true);
                 setRewardState('rest');
             }
         }}/>
@@ -44,10 +46,11 @@ const styles = StyleSheet.create({
   addContainer: {
     position: "absolute",
     width: isMobile? "30%" : "42%",
-    aspectRatio: 1/1,
+    height: "50%",
+    //aspectRatio: 1/1,
     justifyContent: "center",
-    top: isMobile? "20%" : "15%",
-    left: isMobile? "70%" : "63%",
+    top: "15%",
+    left: isMobile? "65%" : "63%",
     shadowColor: "#36393d",
     shadowOffset: { width: 1 },
     shadowRadius: 5,
@@ -55,10 +58,11 @@ const styles = StyleSheet.create({
 },
 addContainerLeft: {
   position: "absolute",
-  aspectRatio: 1/1,
+  height: "50%",
+  //aspectRatio: 1/1,
   width: isMobile? "30%" : "42%",
   justifyContent: "center",
-  top: isMobile? "20%" : "15%",
+  top: "15%",
   left: isMobile? "0%" : "-5%",
   shadowColor: "#36393d",
   shadowOffset: { width: 1 },

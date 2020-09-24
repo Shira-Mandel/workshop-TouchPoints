@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
-import { IconButton } from "react-native-paper";
+//import { IconButton } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
 import * as Animatable from 'react-native-animatable';

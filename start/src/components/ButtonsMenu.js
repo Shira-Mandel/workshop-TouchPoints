@@ -4,9 +4,9 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
 
-const ButtonsMenu = ({style, title, navigate, source, resize}) => {
-    return <View style={style} >
-    <TouchableOpacity onPress={navigate}>
+const ButtonsMenu = ({disable, style, title, navigate, source, resize}) => {
+    return <View style={style}>
+    <TouchableOpacity disabled={disable} onPress={navigate}>
      <Image style={{height: "100%", borderRadius: 20, width: "100%"}} source={source} resizeMode={resize}/>
     </TouchableOpacity>
      <Text style={styles.text}>{title}</Text>  

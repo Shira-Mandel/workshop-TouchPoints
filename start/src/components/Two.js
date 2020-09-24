@@ -9,9 +9,14 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
 
-const Two = ({isRight, isAdd, onPress, isNaked, enableNext}) => {
+const Two = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
     const [counter, setCounter] = useState(2);
     const [rewardState, setRewardState] = useState('rest');
+
+    if (disabled) {
+      return <ImageBackground style={styles.bgimageAdd} source={require("../../assets/number2.png")} resizeMode="contain">
+  </ImageBackground>
+    }
 
     return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
         isNaked ? rewardState == 'reward' ? require("../../assets/kid2.png") : require("../../assets/number2.png") : isAdd ? require("../../assets/number2.png") : rewardState == 'reward' ? require("../../assets/kid2.png") : require("../../assets/kid-point2.png")} resizeMode="contain">
@@ -85,7 +90,7 @@ const styles = StyleSheet.create({
       },
       transButton1: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         borderRadius: normalize(35),
         left: '13%',
         top: '18%',
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
       },
       transButton2: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         borderRadius: normalize(35),
         left: '15.5%',
         top: "69%",
@@ -114,7 +119,7 @@ const styles = StyleSheet.create({
       height: "100%",
       aspectRatio: 1/1,
       shadowColor: "#36393d",
-      left: "10%",
+      left: "15%",
       transform: [{rotate: '2deg'}],
     },
     addContainerLeft: {

@@ -12,8 +12,8 @@ const HomeButton = ({onPress, style}) => {
 const styles = StyleSheet.create({
     home: {
         position: "absolute",
-        left: '0%',
-        bottom: '0%',
+        left: '3%',
+        bottom: '3%',
         zIndex: 1
     }
 });

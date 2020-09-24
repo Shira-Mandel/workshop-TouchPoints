@@ -1,21 +1,21 @@
 import React from "react";
-import { Text, StyleSheet, View, ImageBackground, SafeAreaView, ScrollView} from "react-native";
+import { Text, StyleSheet, View, Dimensions} from "react-native";
 import normalize from "react-native-normalize";
 import BackButton from "../components/BackButton"
 import Balloons from "../animations/Balloons";
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const isMobile = windowWidth <= 812 && true;
 
 const AppInfoScreen = ({navigation, route}) => {
   return <View style={{justifyContent: "center", height: '100%', width: '100%'}}>
-    <ImageBackground source={require('../../assets/note.png')} resizeMode='contain' style={styles.bgimage}>
-      {/* <View style={{transform: [{rotate: '2deg'}],  height: "78.6%", aspectRatio: 1/1, borderWidth: 8}}/> */}
-    <Text style={styles.textContainer}>
-    האפליקציה פותחה על מנת ללמד ילדים, ובפרט ילדים בעלי לקויות למידה חשבון בסיסי: למנות ולחבר ספרות עד 10.
-    קהל היעד הוא ילדים בגילאי גן חובה ועד כיתה א', השיטה פותחה על ידי רונית קידן, מורה להוראה מתקנת, שביקשה ליצור חוויה אינטרקטיבית עבור הילדים.
-    על השיטה: על כל ספרה ישנה כמות מתאימה של נקודות (לדוגא לספרה 1 ישנה נקודה אחת), כאשר המטרה היא שהילדים יזכרו את מיקומי הנקודות ויצליחו באמצעות מנייה לשיים את הספרות ובכך לזכור אותן.
-    וכמו כן, להשתמש בשיטה על מנת להצליח לחבר ספרות עד עשר.
+      <View style={styles.textContainer}>
+      <Text style={styles.text}>
+    אפליקציית TouchPoints עוזרת לילדים בעלי לקות למידה בחשבון. האפליקציה מנגישה שיטה מקצועית ייחודית ששוכללה לאורך שנים תוך עבודה עם ילדים על ידי הלקוחה הראשונה והמאוד מיוחדת של הפרויקט – רונית קידן, אמא של טל.
+רונית קידן, מומחית להוראה מתקנת, למדה את השיטה בארה"ב ו"גיירה" אותה תוך כדי שכלול השיטה לחוויה אינטראקטיבית המערבת מספר חושים, שהופכת את לימוד החשבון לחוויה ידידותית גם עבור ילדים עם לקויות למידה.
+עד היום השיטה מתבצעת באמצעות נייר. לאפליקציה מעבר להפיכת השיטה לנגישה יותר עבור מטפלים ומורים ללקויי למידה יש יתרונות נוספים בשיפור החוויה עבור הילדים ושיפור המעקב המקצועי עבור המטפלים בארץ ובעולם.
     </Text>
-  </ImageBackground>
+      </View>
   <BackButton onPress={() => navigation.goBack()}/>
   <Balloons style={styles.anim}/>
     </View>
@@ -24,33 +24,25 @@ const AppInfoScreen = ({navigation, route}) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: normalize(10),
+    fontSize: normalize(9),
+    lineHeight: isMobile? 30 : 50,
     writingDirection: 'rtl',
-    width: '20%'
+    textAlign: "center",
   },
   textContainer: {
-    transform: [{rotate: '2deg'}],  
-    height: "78.6%", 
-    aspectRatio: 1/1,
-    borderWidth: 8,
-    textAlign: "center",
-    textAlignVertical: "center",
-    fontSize: normalize(9),
+    zIndex: 1, 
+    width: "88%",
+    borderRadius: 20,
+    borderWidth: 10,
+    borderColor: "white",
+    backgroundColor: "white",
     margin: normalize(25),
     marginTop: normalize(20),
-    lineHeight: 39,
-    padding: "2%",
-    writingDirection: 'rtl',
-    transform: [{rotate: '2deg'}]
-  },
-  bgimage: {
-    position: "relative",
-    flex: 1,
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 1,
+    padding: isMobile? 5 : 20,
+    shadowOffset: { width: 0.5 },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
+    left: isMobile? "0.5%" : "0%"
   },
   anim: {
     position: "relative",

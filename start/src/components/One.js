@@ -9,11 +9,15 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
 
-const One = ({isRight, isAdd, onPress, isNaked, enableNext}) => {
+const One = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
     const [counter, setCounter] = useState(1);
     const [ isPress, setIsPress ] = useState(false);
     const [rewardState, setRewardState] = useState('rest');
-
+    
+    if (disabled) {
+      return <ImageBackground style={styles.bgimageAdd} source={require("../../assets/number1.png")} resizeMode="contain">
+  </ImageBackground>
+    }
     return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
             isNaked ? rewardState == 'reward' ? require("../../assets/kid1.png") : require("../../assets/number1.png") : isAdd ? require("../../assets/number1.png") : rewardState == 'reward' ? require("../../assets/kid1.png") : require("../../assets/kid-point1.png")} resizeMode="contain">
             <Confetti rewardState={rewardState}/>
@@ -59,7 +63,7 @@ const styles = StyleSheet.create({
       },
       transButton: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),

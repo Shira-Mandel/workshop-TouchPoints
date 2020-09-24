@@ -10,11 +10,17 @@ const windowHeight = Dimensions.get('window').height;
 
 const isMobile = windowWidth <= 812 && true; 
 
-const Five = ({isRight, isAdd, onPress, isNaked, enableNext}) => {
+const Five = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
   const [counter, setCounter] = useState(5);
   const [ isPress, setIsPress ] = useState(false);
   const [rewardState, setRewardState] = useState('rest');
-      
+  console.log(isAdd);
+  console.log(isNaked);
+
+  if (disabled) {
+    return <ImageBackground style={styles.bgimageAdd} source={require("../../assets/number5.png")} resizeMode="contain">
+</ImageBackground>
+  }
   return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
         isNaked ? rewardState == 'reward' ? require("../../assets/kid5.png") : require("../../assets/number5.png") : isAdd ? require("../../assets/number5.png") : rewardState == 'reward' ? require("../../assets/kid5.png") : require("../../assets/kid-point5.png")} resizeMode="contain">
     <Confetti rewardState={rewardState}/>
@@ -152,7 +158,7 @@ const styles = StyleSheet.create({
       },
       transButton1: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -161,7 +167,7 @@ const styles = StyleSheet.create({
       },
       transButton2: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -170,7 +176,7 @@ const styles = StyleSheet.create({
       }, 
       transButton3: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -179,7 +185,7 @@ const styles = StyleSheet.create({
       },
       transButton4: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -188,7 +194,7 @@ const styles = StyleSheet.create({
       },
       transButton5: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),

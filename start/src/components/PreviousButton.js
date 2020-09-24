@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     next: {
         position: "absolute",
         left: '0%',
-        top: '0%',
+        top: '3%',
         zIndex: 1
     },
 

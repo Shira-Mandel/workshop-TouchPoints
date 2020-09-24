@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 import { Dimensions, StyleSheet, View, Image, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { IconButton } from "react-native-paper";
+//import { IconButton } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
 const windowWidth = Dimensions.get('window').width;

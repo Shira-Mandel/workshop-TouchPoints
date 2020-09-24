@@ -9,14 +9,18 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
 
-const Three = ({isRight, isAdd, onPress, isNaked, enableNext}) => {
+const Three = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
     const [counter, setCounter] = useState(3);
     const [ isPress, setIsPress ] = useState(false);
     const [rewardState, setRewardState] = useState('rest');
-        
+    
+    if (disabled) {
+      return <ImageBackground style={styles.bgimageAdd} source={require("../../assets/number3.png")} resizeMode="contain">
+  </ImageBackground>
+    }
     // return <View style={isAdd? isRight? styles.addContainerLeft  : styles.addContainer : styles.mainContainer}>
     return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
-            isNaked ? rewardState == 'reward' ? isAdd ? require("../../assets/number3-normal.png") : require("../../assets/number3-normal.png") : require("../../assets/number3-normal.png") : require("../../assets/number3-normal.png")} resizeMode="contain">
+            isNaked ? rewardState == 'reward' ? require("../../assets/kid3.png") : require("../../assets/number3.png") : isAdd ? require("../../assets/number3.png") : rewardState == 'reward' ? require("../../assets/kid3.png") : require("../../assets/kid-point3.png")} resizeMode="contain">
         <Confetti rewardState={rewardState}/>
         <Point 
             unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "11%",
+        top: "25%",
         left: "27%",
       },
       button2: {
@@ -98,8 +102,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "43%",
-        left: "33%"
+        top: "46%",
+        left: "31%"
       },
       button3: {
         position: "absolute",
@@ -107,34 +111,34 @@ const styles = StyleSheet.create({
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "75%",
-        left: "27%"
+        top: "69%",
+        left: "25%"
       },
       transButton1: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "11%",
+        top: "25%",
         left: "27%",
       },
       transButton2: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "43%",
-        left: "33%"
+        top: "46%",
+        left: "31%"
       },
       transButton3: {
         position: "absolute",
-        backgroundColor: "yellow",
+        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
-        top: "75%",
+        top: "69%",
         left: "27%"
       },
       addContainer: {
