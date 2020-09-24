@@ -20,7 +20,6 @@ const CirclesId = () => {
 
   return <View style={{height: windowHeight, width: windowWidth, position: 'relative'}}>
   <Confetti rewardState={rewardState}/>
-   <Text style = {styles.Text}>מצאו את העיגולים </Text>
    <WrongLineHorizontal style={styles.LineHorizontal1}/>
    <WrongLineHorizontal style={styles.LineHorizontal2}/>
    <WrongLineHorizontal style={styles.LineHorizontal3}/>
@@ -32,39 +31,30 @@ const CirclesId = () => {
 }
 
 const styles = StyleSheet.create({
-Text: {
-fontSize: normalize(8),
-color: "#002266", 
-fontWeight: 'bold',
-textAlign: "center"
-},
 LineHorizontal1: {
 position: "absolute",
-height: 100,
 top: isMobile? "60%" : "70%",
-left: isMobile? "10%" : "20%"
+left: isMobile? "10%" : "10%"
 },
 LineHorizontal2: {
 position: "absolute",
-height: 100,
 top: isMobile? "7%" : "10%",
-left: isMobile? "50%" : "70%",
+left: isMobile? "50%" : "50%",
 },
 LineHorizontal3: {
 position: "absolute",
-height: 100,
 top: isMobile? "40%" : "40%",
-left: isMobile? "40%" : "50%"
+left: isMobile? "40%" : "40%"
 },
 LineVertical1: {
 position: "absolute",
-top: isMobile? "10%" : "30%",
-left: isMobile? "30%" : "8%",
+top: isMobile? "10%" : "10%",
+left: isMobile? "30%" : "30%",
 },
 LineVertical2: {
 position: "absolute",
-top: isMobile? "50%" : "30%",
-left: isMobile? "80%" : "8%",
+top: isMobile? "50%" : "50%",
+left: isMobile? "80%" : "80%",
 },
 Circle1: {
 position: "absolute",

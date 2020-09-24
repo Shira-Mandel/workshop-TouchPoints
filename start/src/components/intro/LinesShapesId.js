@@ -21,35 +21,20 @@ const LinesShapesId = () => {
 
   return <View style={styles.mainContainer}>
            <Confetti rewardState={rewardState}/>
-           {/* <Text style = {styles.Text}>מצאו את הקווים השוכבים </Text> */}
-           
            <ImageBackground style={styles.bgimagewindow} source={require("../../../assets/window.png")} resizeMode="contain">
            <LineHorizontal style={styles.LineHorizontal1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
            <LineHorizontal style={styles.LineHorizontal2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
            <LineHorizontal style={styles.LineHorizontal3} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           </ImageBackground>
-
+           </ImageBackground> 
+           
            <ImageBackground style={styles.bgimagehouse} source={ require("../../../assets/house.png")} resizeMode="contain">
            <LineHorizontal style={styles.LineHorizontal4} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
            <LineHorizontal style={styles.LineHorizontal5} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
            </ImageBackground>
-          {/* <ImageBackground style={styles.bgimagebicycle} source={rewardState == 'reward' ? require("../../../assets/bicycle.png") : require("../../../assets/bicycle.png")} resizeMode="contain">
-          
-          </ImageBackground> */}
             </View>
 }
 
 const styles = StyleSheet.create({
-  Text: {
-    fontSize:15,
-    color: "#002266", 
-  //position: "absolute",
-  fontWeight: 'bold',
-  left: isMobile ? '35%' : '6%',
-  top: isMobile ? "0%" : '18%',
-  position: "absolute",
-
-},
 mainContainer: {
   width: '100%',
   //height: "100%",
@@ -61,81 +46,77 @@ bgimagewindow: {
   position: "absolute",
   marginTop: isMobile ? '2%' : '6%',
   borderRadius: 20,
-  left: isMobile ? '50%' : '6%',
-  top: isMobile ? "-3%" : '18%',
+  left: isMobile ? '50%' : '40%',
+  top: isMobile ? "0%" : '-7%',
   aspectRatio: 1/1,
-  direction: 'ltr',
+ direction:'ltr',
   //borderWidth: 8,
-  height: isMobile ?'100%' : 75,
-  direction: 'ltr',
-
+  height: isMobile ?'100%' : '100%',
+  //width: isMobile ?'100%' : 75,
+ // flex:1,
 },
 bgimagehouse: {
   position: "absolute",
   marginTop: isMobile ? '2%' : '6%',
   borderRadius: 20,
-  left: isMobile ? '12%' : '6%',
-  top: isMobile ? "9%" : '18%',
+  left: isMobile ? '12%' : '0%',
+  top: isMobile ? "9%" : '0%',
   aspectRatio: 1/1,
   //width: isMobile ? "100%" : 75,
-  height: isMobile ? '82%' : 75,
+  height: isMobile ? '85%' : '85%',
   direction: 'ltr',
+  //flex:1,
   //borderWidth: 8
 
 },
 LineHorizontal1: {
   position: "absolute",
-  height: isMobile? '90%' : "10%",
-  width: isMobile? "30%" : "10%",
-  top: isMobile? "0%" : "10%",
-  left: isMobile? "30%" : "80%",
+  width: isMobile? "31%" : "30%",
+  height: isMobile? "2%" : "2%",
+  top: isMobile? "25%" : "25%",
+  left: isMobile? "30%" : "30%",
   zIndex:1,
-  borderWidth:2,
-  borderColor:"blue"
+  
 },
 LineHorizontal2: {
   position: "absolute",
-  height: isMobile? '30%' : "10%",
-  width: isMobile? "30%" : "10%",
-  top: isMobile? "23%" : "70%",
-  left: isMobile? "30%" : "20%",
+  width: isMobile? "31%" : "30%",
+  height: isMobile? "2%" : "2%",
+  top: isMobile? "49%" : "49%",
+  left: isMobile? "30%" : "30%",
   zIndex:1,
-  borderWidth:2,
-  borderColor:"pink",
+  
 },
 
 LineHorizontal3: {
   position: "absolute",
-  width: isMobile? "30%" : "10%",
-  height: isMobile? '30%' : "10%",
-  top: isMobile? "47%" : "40%",
-  left: isMobile? "30%" : "50%",
+  width: isMobile? "31%" : "30%",
+  height: isMobile? "2%" : "2%",
+  top: isMobile? "74%" : "72%",
+  left: isMobile? "30%" : "30%",
   zIndex:1,
-  borderWidth:2,
-  borderColor:"purple"
-
+  
 },
 LineHorizontal4: {
   position: "absolute",
-  //height: 100,
-  width: isMobile? "40%" : "10%",
-  top: isMobile? "9%" : "10%",
-  left: isMobile? "28%" : "80%",
-  borderWidth:2,
-  borderColor:"red"
-
-
-
+  width: isMobile? "41%" : "41%",
+  height: isMobile? "2%" : "2%",
+  top: isMobile? "77%" : "77%",
+  left: isMobile? "27%" : "27%",
+  zIndex:1,
+  
 },
 LineHorizontal5: {
   position: "absolute",
-  width: isMobile? "42%" : "10%",
- // height: 100,
-  top: isMobile? "43%" : "40%",
-  left: isMobile? "28%" : "50%",
-  borderWidth:2,
-  borderColor:"green"
-
+  width: isMobile? "41%" : "41%",
+  height: isMobile? "2%" : "2%",
+  top: isMobile? "39%" : "39%",
+  left: isMobile? "27%" : "27%",
+  zIndex:1,
+  // borderRadius: 20,
+  // borderWidth:2,
+  //borderColor:"red",
+  
 },
 });
 

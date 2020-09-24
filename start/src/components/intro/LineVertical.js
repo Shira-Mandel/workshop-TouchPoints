@@ -1,9 +1,12 @@
 import React,{useState} from "react";
-import { Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
+import { Dimensions,Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
 import { IconButton } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
 import * as Animatable from 'react-native-animatable';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const isMobile = windowWidth <= 812 && true;
 
 export default class LineVertical extends React.Component {
   handleViewRef = ref => this.view = ref;
@@ -14,7 +17,7 @@ export default class LineVertical extends React.Component {
     return (
         <Animatable.View style={this.props.style} ref={this.handleViewRef}>
             <TouchableOpacity onPress = {this.shake}>
-          <Ionicons name="md-remove" size={150} color={'black'} style={{transform: [{rotate: '90deg'}]}}/>
+          <Ionicons name="md-remove" size={isMobile? 150 : 250} color={'black'} style={{transform: [{rotate: '90deg'}]}}/>
     </TouchableOpacity>
       </Animatable.View>
     );

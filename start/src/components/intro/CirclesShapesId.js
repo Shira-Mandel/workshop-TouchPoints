@@ -20,7 +20,6 @@ const CirclesShapesId = () => {
 
   return <View style={styles.mainContainer}>
            <Confetti rewardState={rewardState}/>
-           <Text style = {styles.Text}>מצאו את העיגולים </Text>
            <ImageBackground style={styles.bgimagebicycle} source={rewardState == 'reward' ? require("../../../assets/bicycle.png") : require("../../../assets/bicycle.png")} resizeMode="contain">
            <Circle style={styles.Circle1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
            <Circle style={styles.Circle2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
@@ -32,16 +31,6 @@ const CirclesShapesId = () => {
 }
 
 const styles = StyleSheet.create({
-  Text: {
-    fontSize:15,
-    color: "#002266", 
-  //position: "absolute",
-  fontWeight: 'bold',
-  left: isMobile ? '35%' : '6%',
-  top: isMobile ? "10%" : '18%',
-  position: "absolute",
-
-},
 mainContainer: {
   width: '100%',
   //display: 'flex',
@@ -54,79 +43,44 @@ mainContainer: {
 bgimagebicycle: {
  position:"absolute",
   borderRadius: 20,
-  height: "75%",
+  height: isMobile? "75%": "75%",
   aspectRatio: 1/1,
-  left: isMobile ? '5%' : '6%',
-  top: isMobile ? "20%" : '18%',
+  left: isMobile ? '5%' : '0%',
+  top: isMobile ? "20%" : '30%',
   direction: 'ltr',
 },
 bgimagesun: {
  position:"absolute",
   borderRadius: 20,
-  height: "90%",
+  height:  isMobile? "90%": "90%",
   aspectRatio: 1/1,
-  left: isMobile ? '50%' : '6%',
-  top: isMobile ? "20%" : '18%',
+  left: isMobile ? '50%' : '40%',
+  top: isMobile ? "20%" : '0%',
   direction: 'ltr',
 },
-LineHorizontal1: {
-  position: "absolute",
-  height: isMobile? 1 : "10%",
-  width: isMobile? "18%" : "10%",
-  top: isMobile? "0%" : "70%",
-  left: isMobile? "39%" : "20%"
-},
-LineHorizontal2: {
-  position: "absolute",
-  //height: 100,
-  width: isMobile? "18%" : "10%",
-  top: isMobile? "24%" : "10%",
-  left: isMobile? "39%" : "80%",
-},
-LineHorizontal3: {
-  position: "absolute",
-  width: isMobile? "17%" : "10%",
- // height: 100,
-  top: isMobile? "50%" : "40%",
-  left: isMobile? "39%" : "50%"
-},
-LineHorizontal4: {
-  position: "absolute",
-  //height: 100,
-  width: isMobile? "16%" : "10%",
-  top: isMobile? "7%" : "10%",
-  left: isMobile? "41%" : "80%",
-},
-LineHorizontal5: {
-  position: "absolute",
-  width: isMobile? "16%" : "10%",
- // height: 100,
-  top: isMobile? "40%" : "40%",
-  left: isMobile? "41%" : "50%"
 
-},
 Circle1: {
   position: "absolute",
   //height: 100,
-  width: isMobile? "100%" : "10%",
-  top: isMobile? "39%" : "10%",
-  left: isMobile? "5%" : "80%",
+  width: isMobile? "100%" : "100%",
+  top: isMobile? "39%" : "40%",
+  left: isMobile? "5%" : "7%",
  
 
 },
 Circle2: {
   position: "absolute",
   //height: 100,
-  width: isMobile? "100%" : "10%",
-  top: isMobile? "40%" : "10%",
-  left: isMobile? "58%" : "80%",
+  width: isMobile? "100%" : "100%",
+  top: isMobile? "40%" : "42%",
+  left: isMobile? "58%" : "60%",
 },
 Circle3: {
   position: "absolute",
   //height: 100,
-  width: isMobile? "100%" : "10%",
-  top: isMobile? "30%" : "10%",
-  left: isMobile? "37%" : "80%",
+  width: isMobile? "100%" : "100%",
+  top: isMobile? "30%" : "30%",
+  left: isMobile? "37%" : "37%",
 },
 });
 

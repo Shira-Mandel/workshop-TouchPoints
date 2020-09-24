@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { I18nManager, StyleSheet, TouchableOpacity} from 'react-native';
+import { StatusBar,I18nManager, StyleSheet, TouchableOpacity} from 'react-native';
 import HomeScreen from "./src/menus/HomeScreen";
 import IntroScreen from './src/menus/IntroScreen';
 import LearningDigitsMenuScreen from './src/menus/LearningDigitsMenuScreen';
@@ -16,6 +16,7 @@ import CirclesLinesInShapesIdScreen from './src/screens/CirclesLinesInShapesIdSc
 import MemoryAidScreen from './src/screens/MemoryAidScreen';
 import AddingDiffDigitsScreen from './src/screens/AddingDiffDigitsScreen';
 import BigSmallDigitScreen from './src/screens/BigSmallDigitScreen';
+
 
 I18nManager.allowRTL(false);
 
@@ -49,6 +50,7 @@ const Stack = createStackNavigator()
  export default function App() {
    return (
      <NavigationContainer>
+       <StatusBar hidden = {true}/>
        <MyStack />
      </NavigationContainer>
    );

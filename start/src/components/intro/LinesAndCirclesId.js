@@ -20,7 +20,6 @@ const LinesAndCirclesId = () => {
 
   return <View style={{alignItems: 'center', display: 'flex',height: '100%', width: '100%', position: 'relative'}}>
           <Confetti rewardState={rewardState}/>
-           <Text style = {styles.Text}>מצאו את העיגולים והקווים השוכבים </Text>
            <LineHorizontal style={styles.LineHorizontal1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
            <LineHorizontal style={styles.LineHorizontal2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
            <LineHorizontal style={styles.LineHorizontal3} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
@@ -32,30 +31,30 @@ const LinesAndCirclesId = () => {
 }
 
 const styles = StyleSheet.create({
-  Text: {
-    fontSize: normalize(8),
-    color: "#002266", 
-    fontWeight: 'bold',
-    textAlign: "center"
-    },
     LineHorizontal1: {
     position: "absolute",
-    height: 100,
     top: isMobile? "15%" : "30%",
     left: isMobile? "5%" : "8%",
+    width: isMobile? "20%" : "20%",
+   height: isMobile? "4%" : "3%",
+    zIndex:1,
     },
     LineHorizontal2: {
     position: "absolute",
-    height: 100,
     top: isMobile? "2%" : "10%",
-    left: isMobile? "70%" : "80%",
+    left: isMobile? "70%" : "80%", 
+    width: isMobile? "20%" : "20%",
+    height: isMobile? "4%" : "3%",
+    zIndex:1,
     },
     LineHorizontal3: {
     position: "absolute",
-    height: 100,
     top: isMobile? "40%" : "40%",
-    left: isMobile? "40%" : "50%"
-    },
+    left: isMobile? "40%" : "50%",
+    width: isMobile? "20%" : "20%",
+    height: isMobile? "4%" : "3%",
+     zIndex:1,  
+  },
     LineVertical1: {
     position: "absolute",
     top: isMobile? "10%" : "30%",
@@ -63,8 +62,8 @@ const styles = StyleSheet.create({
     },
     LineVertical2: {
     position: "absolute",
-    top: isMobile? "50%" : "30%",
-    left: isMobile? "80%" : "8%",
+    top: isMobile? "50%" : "50%",
+    left: isMobile? "80%" : "80%",
     },
     Circle1: {
     position: "absolute",

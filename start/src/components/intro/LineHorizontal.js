@@ -20,12 +20,19 @@ const LineHorizontal = ({style, count, setCounter, setRewardState, flag}) => {
       }
     }, [isPress]);
 
-    return <TouchableOpacity style={style}/*{position: 'absolute', zIndex: 1, backgroundColor: 'black'}*/ onPress = {() => {
+    return  <View style={StyleSheet.compose(isPress? styles.viewpressed : styles.viewunpressed,style)}>
+    <TouchableOpacity /*style={{height:"200%", borderRadius:"2%", borderColor:"blue"}}*/ onPress = {() => {
       setIsPress(true);
       setCounter();
-    }} disabled={isPress}>
-     <Ionicons name="md-remove" size={200} color={isPress&& flag ? 'green' : 'black'}/>
-      {/* <Image style={style} source = {require("../../../assets/window.png")}/> */}
-  </TouchableOpacity>
+    }} disabled={isPress} style={{zIndex:1, height:'100%', width:'100%'}}/>
+      </View>
 }
+const styles = StyleSheet.create({
+viewunpressed:{
+  backgroundColor: "black"
+},
+viewpressed:{
+  backgroundColor: "green"
+}
+})
 export default LineHorizontal;

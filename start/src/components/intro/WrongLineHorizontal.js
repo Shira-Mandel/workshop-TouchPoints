@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from "react";
-import { Text, Dimensions, View, StyleSheet, TouchableOpacity} from "react-native";
+import { Dimensions, View, StyleSheet, TouchableOpacity} from "react-native";
 import * as Animatable from 'react-native-animatable';
 import { Ionicons,Feather } from "@expo/vector-icons";
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const isMobile = windowWidth <= 812 && true;
+ 
 export default class WrongLineHorizontal extends React.Component {
     handleViewRef = ref => this.view = ref;
     
@@ -12,7 +15,7 @@ export default class WrongLineHorizontal extends React.Component {
       return (
           <Animatable.View style={this.props.style} ref={this.handleViewRef}>
               <TouchableOpacity style={styles.button} onPress = {this.shake}>
-          <Ionicons name="md-remove" size={150} color={'black'}/>
+          <Ionicons name="md-remove" size={isMobile? 150 : 250} color={'black'}/>
       </TouchableOpacity>
         </Animatable.View>
       );
