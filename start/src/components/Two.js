@@ -4,6 +4,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import normalize from "react-native-normalize";
 import Point from "./Point";
 import Confetti from "../animations/Confetti";
+import { Video } from 'expo-av';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -21,6 +22,12 @@ const Two = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
     return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
         isNaked ? rewardState == 'reward' ? require("../../assets/kid2.png") : require("../../assets/number2.png") : isAdd ? require("../../assets/number2.png") : rewardState == 'reward' ? require("../../assets/kid2.png") : require("../../assets/kid-point2.png")} resizeMode="contain">
         <Confetti rewardState={rewardState}/>
+        <Video
+                source={require("../../assets/sounds/2.mp4")}
+                shouldPlay={rewardState=='reward'}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls={false}/>
         <Point 
             unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
             pressedStyle={isNaked? styles.button1 : {}}
@@ -90,7 +97,6 @@ const styles = StyleSheet.create({
       },
       transButton1: {
         position: "absolute",
-        //backgroundColor: "yellow",
         borderRadius: normalize(35),
         left: '13%',
         top: '18%',
@@ -99,7 +105,6 @@ const styles = StyleSheet.create({
       },
       transButton2: {
         position: "absolute",
-        //backgroundColor: "yellow",
         borderRadius: normalize(35),
         left: '15.5%',
         top: "69%",

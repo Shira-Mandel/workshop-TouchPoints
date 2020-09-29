@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { Button, StyleSheet, View, Dimensions, ImageBackground} from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, Dimensions, ImageBackground} from "react-native";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
 import NextButton from "../components/NextButton";
@@ -13,15 +13,15 @@ import Six from "../components/Six";
 import Seven from "../components/Seven";
 import Eight from "../components/Eight";
 import Nine from "../components/Nine";
+import { Video } from 'expo-av';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height - 60;
 
-
 const LearningDigitsScreen = ({ navigation, route }) => {
   const [counter, setCounter] = useState(route.params.init);
   const [isDisabled, setIsDisabled] = useState(true);
-
+ 
   const patterns = [
     { name: <One isNaked={false} enableNext={() => setIsDisabled(false)}></One>},
     { name: <Two isNaked={false} enableNext={() => setIsDisabled(false)}></Two>},
@@ -37,6 +37,12 @@ const LearningDigitsScreen = ({ navigation, route }) => {
     return <ImageBackground style={styles.bgimage} source={require("../../assets/playground.jpg")} resizeMode="cover"> 
             <HomeButton onPress={() => {navigation.navigate('Home')}}/>
             {patterns[counter].name}
+            {<Video
+                source={require("../../assets/sounds/touch-points-remember.mp4")}
+                shouldPlay={counter==route.params.init}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls ={false}/>}
             <NextButton disabled={isDisabled} onPress={() => {
               if (counter >= patterns.length - 1)
               {

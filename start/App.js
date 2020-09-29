@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { I18nManager, StyleSheet, TouchableOpacity} from 'react-native';
+import { I18nManager, StatusBar, TouchableOpacity} from 'react-native';
 import HomeScreen from "./src/menus/HomeScreen";
 import IntroScreen from './src/menus/IntroScreen';
 import LearningDigitsMenuScreen from './src/menus/LearningDigitsMenuScreen';
@@ -53,6 +53,7 @@ const Stack = createStackNavigator()
  export default function App() {
    return (
      <NavigationContainer>
+       <StatusBar hidden={true}/>
        <MyStack />
      </NavigationContainer>
    );

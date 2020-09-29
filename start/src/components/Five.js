@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import { StyleSheet, View, Dimensions, ImageBackground } from "react-native";
+import { StyleSheet, Dimensions, ImageBackground } from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import normalize from "react-native-normalize";
 import Point from "./Point";
 import Confetti from "../animations/Confetti";
+import { Video } from 'expo-av';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -12,10 +13,7 @@ const isMobile = windowWidth <= 812 && true;
 
 const Five = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
   const [counter, setCounter] = useState(5);
-  const [ isPress, setIsPress ] = useState(false);
   const [rewardState, setRewardState] = useState('rest');
-  console.log(isAdd);
-  console.log(isNaked);
 
   if (disabled) {
     return <ImageBackground style={styles.bgimageAdd} source={require("../../assets/number5.png")} resizeMode="contain">
@@ -24,6 +22,12 @@ const Five = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
   return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
         isNaked ? rewardState == 'reward' ? require("../../assets/kid5.png") : require("../../assets/number5.png") : isAdd ? require("../../assets/number5.png") : rewardState == 'reward' ? require("../../assets/kid5.png") : require("../../assets/kid-point5.png")} resizeMode="contain">
     <Confetti rewardState={rewardState}/>
+    <Video
+                source={require("../../assets/sounds/5.mp4")}
+                shouldPlay={rewardState=='reward'}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls={false}/>
     <Point 
         unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
         pressedStyle={isNaked? styles.button1 : {}}
@@ -103,7 +107,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         height: "100%",
         aspectRatio: 1/1,
-        //width: wp('80%'),
         shadowColor: "#36393d",
         shadowOffset: { width: 1 },
         shadowRadius: 5,
@@ -158,7 +161,6 @@ const styles = StyleSheet.create({
       },
       transButton1: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -167,7 +169,6 @@ const styles = StyleSheet.create({
       },
       transButton2: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -176,7 +177,6 @@ const styles = StyleSheet.create({
       }, 
       transButton3: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -185,7 +185,6 @@ const styles = StyleSheet.create({
       },
       transButton4: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -194,7 +193,6 @@ const styles = StyleSheet.create({
       },
       transButton5: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),

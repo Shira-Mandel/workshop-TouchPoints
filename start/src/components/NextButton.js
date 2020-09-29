@@ -4,7 +4,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import normalize from "react-native-normalize";
 
 const NextButton = ({onPress, disabled}) => {
-    //console.log({disabled});
     return <TouchableOpacity onPress={onPress} style={styles.next} disabled={disabled}>
               <MaterialCommunityIcons name="arrow-right-circle" size={normalize(40)} color="#ff6905" />
     </TouchableOpacity>

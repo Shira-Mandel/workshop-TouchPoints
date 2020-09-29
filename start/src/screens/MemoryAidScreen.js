@@ -1,31 +1,29 @@
-import React, {useState, useEffect} from "react";
-import { Text, StyleSheet, View, TouchableOpacity,ImageBackground, Image} from "react-native";
-import ButtonsMenu from "../components/HomeButton"
-import { Col, Row, Grid } from "react-native-easy-grid";
+import React, {useState} from "react";
+import { StyleSheet, ImageBackground} from "react-native";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
 import NextButton from "../components/NextButton";
 import MemoryCircle from "../components/intro/MemoryCircle";
 import MemoryLine from "../components/intro/MemoryLine";
 
-const patterns = [
-   { name: <MemoryCircle></MemoryCircle>},
-   { name: <MemoryLine></MemoryLine>},
-];
-
 const MemoryAidScreen = ({navigation}) => {
     const [counter, setCounter] = useState(0);
-    
+    const [isDisabled, setIsDisabled] = useState(true);
+    const patterns = [
+      { name: <MemoryCircle enableNext={() => setIsDisabled(false)}></MemoryCircle>},
+      { name: <MemoryLine enableNext={() => setIsDisabled(false)}></MemoryLine>},
+   ];
     return <ImageBackground style={styles.bgimage} source={require("../../assets/playground.jpg")} resizeMode="cover"> 
         <HomeButton onPress={() => navigation.navigate('Home')}/>
         {patterns[counter].name}
-        <NextButton onPress={() => {
+        <NextButton disabled={isDisabled} onPress={() => {
             if (counter >= patterns.length - 1)
             {
                 navigation.navigate('Intro');
             }
             else
             {
+                setIsDisabled(true)
                 setCounter(counter + 1)
             }
         }}/>
@@ -60,7 +58,7 @@ const styles = StyleSheet.create({
   bgimage: {
     position: "relative",
     height: '100%',
-    width: '100%'
+    width: '100%',
   }
 });
 

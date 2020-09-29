@@ -210,3 +210,67 @@
 [0910/153405.548:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)
 [0910/154114.737:ERROR:media_internals.cc(112)] Cannot get RenderProcessHost
 [0913/041006.384:ERROR:browser_gpu_channel_host_factory.cc(139)] Failed to launch GPU process.
+[0924/190100.166:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)
+[0925/104653.481:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104658.496:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104703.500:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104708.503:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104713.507:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104718.514:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104723.518:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104728.522:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104733.526:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104738.529:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104743.537:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104748.539:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104753.543:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104758.545:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104803.549:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104808.553:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104813.557:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104818.561:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104823.570:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104828.576:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104833.582:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104838.587:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104843.595:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104848.600:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104853.606:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104858.611:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104903.619:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104908.624:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104913.629:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104918.637:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104923.642:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104928.648:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104933.654:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104938.656:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104943.664:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104948.669:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104953.680:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/104958.687:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105003.696:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105008.705:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105013.714:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105018.724:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105023.733:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105028.743:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105033.748:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105038.752:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105043.758:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105048.764:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105053.770:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105058.788:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105059.219:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed with unconsumed attachments: 0/1
+[0925/105059.272:ERROR:browser_gpu_channel_host_factory.cc(139)] Failed to launch GPU process.
+[0925/105103.805:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105108.813:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105113.846:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105118.854:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105123.875:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105128.906:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105133.934:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105138.960:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105143.966:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/105148.970:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0925/134807.480:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)

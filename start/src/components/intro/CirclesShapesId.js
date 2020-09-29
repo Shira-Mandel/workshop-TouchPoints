@@ -1,103 +1,112 @@
 import React, {useState} from "react";
-import { TouchableWithoutFeedback, Button, Text, StyleSheet, View, Image, ImageBackground, TouchableOpacity} from "react-native";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import RewardsComponent from 'react-native-rewards';
-import normalize from "react-native-normalize";
-import { render } from "react-dom";
-import { color } from "react-native-reanimated";
-import LineHorizontal from "./LineHorizontal";
-import LineVertical from "./LineVertical";
+import { Dimensions, StyleSheet, View, ImageBackground} from "react-native";
 import Circle from "./Circle";
 import Confetti from "../../animations/Confetti";
+import { Video } from 'expo-av';
 
+const windowWidth = Dimensions.get('window').width;
+const isMobile = windowWidth <= 812 && true;
+const rewardSounds = [<Video
+  source={require("../../../assets/sounds/yofi.mp4")}
+  shouldPlay={true}
+  volume={0.1}
+  useNativeControls ={false}/>, 
+  <Video
+  source={require("../../../assets/sounds/kol-hakavod.mp4")}
+  shouldPlay={true}
+  volume={0.1}
+  useNativeControls ={false}/>,
+  <Video
+  source={require("../../../assets/sounds/yafeh-meod.mp4")}
+  shouldPlay={true}
+  isLooping={false}
+  volume={0.1}
+  useNativeControls ={false}/>,
+  <Video
+  source={require("../../../assets/sounds/metzuyan.mp4")}
+  shouldPlay={true}
+  isLooping={false}
+  volume={0.1}
+  useNativeControls ={false}/>
+];
 
-const CirclesShapesId = () => {
-  const [counter, setCounter] = useState(1);
+const CirclesShapesId = ({enableNext}) => {
+  const [counter, setCounter] = useState(3);
   const [rewardState, setRewardState] = useState('rest');
+  const sound = rewardSounds[Math.floor(Math.random() * 5)]
 
-  return <View style={{alignItems: 'center', display: 'flex',height: '100%', width: '100%', position: 'relative'}}>
+  return <View style={styles.mainContainer}>
            <Confetti rewardState={rewardState}/>
-           <Text style = {styles.Text}>מצאו את העיגולים </Text>
-           <ImageBackground style={styles.bgimageface} source={require("../../../assets/circle-kid.png")} resizeMode="contain" >
-           <Circle style={styles.Circle1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => setRewardState('reward')} flag = {true}/>
-           </ImageBackground>
-           <ImageBackground style={styles.bgimagecroc} source={require("../../../assets/croc-left.png")} resizeMode="contain" >
-           <LineHorizontal style={styles.LineHorizontal1} count={null} setCounter={() =>{null}} setRewardState={null} flag = {false}/>
-           </ImageBackground>
-
-           
+          {rewardState=='reward' ? sound : null}
+           <Video
+                source={require("../../../assets/sounds/touch-circles.mp4")}
+                shouldPlay={counter==3}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls ={false}/>
+           <ImageBackground style={styles.bgimagebicycle} source={rewardState == 'reward' ? require("../../../assets/bicycle.png") : require("../../../assets/bicycle.png")} resizeMode="contain">
+           <Circle  rewardState={rewardState} style={styles.Circle1} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => {
+             if (enableNext != null) {
+              enableNext();
+            }
+             setRewardState('reward')}} flag = {true}/>
+           <Circle  rewardState={rewardState} style={styles.Circle2} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => {
+             if (enableNext != null) {
+              enableNext();
+            }
+             setRewardState('reward')}} flag = {true}/>
+          </ImageBackground> 
+          <ImageBackground style={styles.bgimagesun} source={rewardState == 'reward' ? require("../../../assets/sun.png") : require("../../../assets/sun.png")} resizeMode="contain">
+           <Circle  rewardState={rewardState} style={styles.Circle3} count={counter} setCounter={() => setCounter(counter-1)} setRewardState={() => {
+             if (enableNext != null) {
+              enableNext();
+            }
+             setRewardState('reward')}} flag = {true}/>
+          </ImageBackground> 
             </View>
 }
 
 const styles = StyleSheet.create({
-  Text: {
-    fontSize:15,
-    color: "#002266", 
-    fontWeight: 'bold'
+mainContainer: {
+  width: '100%',
+  flex: 1,
 },
-bgimageface:{
-    position: "relative",
-    //alignSelf: "center",
-   // justifyContent: "center",
-    marginTop: "6%",
-    padding: "5%",
-    borderRadius: 20,
-    height: hp('50%'),
-    width: wp('40%'),
-    top:50,
-    left:230,
-    flex: 1,
-    shadowColor: "#36393d",
-    shadowOffset: { width: 1 },
-    elevation: 20,
-    shadowRadius: 5,
-    shadowOpacity: 1,
-
+bgimagebicycle: {
+  position:"absolute",
+  borderRadius: 20,
+  height: isMobile? "75%": "75%",
+  aspectRatio: 1/1,
+  left: isMobile ? '5%' : '0%',
+  top: isMobile ? "20%" : '30%',
+  direction: 'ltr',
 },
-bgimagecroc:{
-    position: "relative",
-    //alignSelf: "center",
-   // justifyContent: "center",
-    marginTop: "6%",
-    padding: "5%",
-    borderRadius: 20,
-    height: hp('50%'),
-    width: wp('40%'),
-    top:-200,
-    left:-100,
-    flex: 1,
-    shadowColor: "#36393d",
-    shadowOffset: { width: 1 },
-    elevation: 20,
-    shadowRadius: 5,
-    shadowOpacity: 1,
-
+bgimagesun: {
+  position:"absolute",
+  borderRadius: 20,
+  height:  isMobile? "90%": "90%",
+  aspectRatio: 1/1,
+  left: isMobile ? '50%' : '40%',
+  top: isMobile ? "20%" : '0%',
+  direction: 'ltr',
 },
-    LineHorizontal1: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        height:100,
-      //  borderRadius: normalize(2000),
-        top: 85,
-        left: 70
-
-      },
-     
-      Circle1: {
-        position: "absolute",
-        //backgroundColor: "black",
-        //aspectRatio: 1 /1,
-        //width:50,
-        height: 90,
-        width: 90,
-      //  borderRadius: normalize(2000),
-        top: 15,
-        left: 130
-      },
-
-
+Circle1: {
+  position: "absolute",
+  width: isMobile? "100%" : "100%",
+  top: isMobile? "39%" : "40.5%",
+  left: isMobile? "5%" : "7.2%",
+},
+Circle2: {
+  position: "absolute",
+  width: isMobile? "100%" : "100%",
+  top: isMobile? "40%" : "42%",
+  left: isMobile? "58%" : "60%",
+},
+Circle3: {
+  position: "absolute",
+  width: isMobile? "100%" : "100%",
+  top: isMobile? "30%" : "31%",
+  left: isMobile? "37%" : "37.5%",
+},
 });
 
 export default CirclesShapesId;

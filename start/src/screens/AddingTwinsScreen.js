@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from "react";
-import { Text, StyleSheet, View, TouchableOpacity,ImageBackground, Dimensions} from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, View, ImageBackground, Dimensions} from "react-native";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
 import NextButton from "../components/NextButton";
 import Confetti from "../animations/Confetti";
 import Three from "../components/Three";
 import NumbersLine from "../components/NumbersLine";
+import { Video } from 'expo-av';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -19,6 +20,12 @@ const AddingTwinsScreen = ({navigation, route}) => {
     return <View style={styles.mainContainer}>
     <ImageBackground style={styles.bgimage} source={require("../../assets/try2.png")} resizeMode="contain">
         <Confetti rewardState={rewardState}/>
+        {<Video
+                source={require("../../assets/sounds/add-numbers.mp4")}
+                shouldPlay={counter==0}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls ={false}/>}
         <HomeButton style={{top: "3%", left: "1%"}} onPress= {() => {navigation.navigate('Home')}}/>
         <View style={styles.semiContainer}>
         <View style={route.params.arr[counter].digit.type==Three? styles.addContainerLeftThree : styles.addContainerLeft}>
@@ -42,7 +49,7 @@ const AddingTwinsScreen = ({navigation, route}) => {
         }}/>
         <NumbersLine result={route.params.arr[counter].value.toString()} setRewardState={() => {
           setIsDisabled(false)
-          setRewardState('reward')}}/>
+          setRewardState('reward')}} rewardState={rewardState}/>
         </ImageBackground>
          </View>
 };

@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import { StyleSheet, View, TouchableOpacity, Image, Dimensions} from "react-native";
 import ButtonsMenu from "../components/ButtonsMenu"
-import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
-import { BlurView } from 'expo-blur';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
-import { Video, Audio } from 'expo-av';
+import { Video } from 'expo-av';
 import One from "../components/One";
 import Two from "../components/Two";
 import Three from "../components/Three";
@@ -15,6 +14,7 @@ import Seven from "../components/Seven";
 import Eight from "../components/Eight";
 import Nine from "../components/Nine";
 import LearningDigitsButton from "../components/LearningDigitsButton";
+import IntroButton from "../components/IntroButton";
 import DiffDigitsButton from "../components/DiffDigitsButton";
 import Balloons from "../animations/Balloons";
 const windowWidth = Dimensions.get('window').width;
@@ -102,8 +102,10 @@ React.useEffect(
      return <View style={{direction: "ltr", height: '100%', width: '100%'}}>
     {music}
   <Image style={{zIndex: 1, height: "30%", width: '100%', alignSelf: "center"}} resizeMode="contain" source={require('../../assets/header.png')}/>
-      <ButtonsMenu resize="cover" source={require("../../assets/images/joey.png")} style={styles.buttonMenu1} title="מבוא" navigate={() => 
-        navigation.navigate('Intro', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})}/>
+      <IntroButton onPress={() => 
+        navigation.navigate('Intro', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})} style={styles.buttonMenu1}/>
+      {/* <ButtonsMenu resize="cover" source={require("../../assets/images/joey.png")} style={styles.buttonMenu1} title="מבוא" navigate={() => 
+        navigation.navigate('Intro', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})}/> */}
       <LearningDigitsButton onPress={() => navigation.navigate('LearningDigitsMenu', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})} style={styles.buttonMenu2}/>
       <ButtonsMenu resize="cover" source={require("../../assets/images/digitsIDIcon.png")} style={styles.buttonMenu3} title = "שיום ספרות" navigate = {() => {
         setIsPlay(false);

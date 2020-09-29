@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import { StyleSheet, View, Dimensions, ImageBackground } from "react-native";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { StyleSheet, Dimensions, ImageBackground } from "react-native";
 import normalize from "react-native-normalize";
 import Point from "./Point";
 import Confetti from "../animations/Confetti";
+import { Video } from 'expo-av';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -11,7 +11,6 @@ const isMobile = windowWidth <= 812 && true;
 
 const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
   const [counter, setCounter] = useState(8);
-  const [ isPress, setIsPress ] = useState(false);
   const [rewardState, setRewardState] = useState('rest');
       
     if (disabled) {
@@ -22,6 +21,12 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
     return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
           isNaked ? rewardState == 'reward' ? require("../../assets/kid8.png") : require("../../assets/number8.png") : isAdd ? require("../../assets/number8.png") : rewardState == 'reward' ? require("../../assets/kid8.png") : require("../../assets/kid-point8.png")} resizeMode="contain">
     <Confetti rewardState={rewardState}/>
+    <Video
+                source={require("../../assets/sounds/8.mp4")}
+                shouldPlay={rewardState=='reward'}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls={false}/>
     <Point 
         unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
         pressedStyle={isNaked? styles.button1 : {}}
@@ -114,12 +119,10 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
 }
 
 const styles = StyleSheet.create({
-
     bgimage:{
       flex: 1,
       position: "relative",
       top: "5%",
-      //marginTop: "2%",
       padding: "5%",
       height: "100%",
       aspectRatio: 1/1,
@@ -203,75 +206,67 @@ const styles = StyleSheet.create({
       },
       transButton1: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
         top: "23%",
-        left: "20%"
+        left: "28%"
       },
       transButton2: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
         top: "31%",
-        left: "22%"
+        left: "30%"
       }, 
       transButton3: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
         top: "23%",
-        left: "70%"
+        left: "75%"
       },
       transButton4: {
         position: "absolute",
-       // backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
         top: "31%",
-        left: "68%"
+        left: "73%"
       },
       transButton5: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
         top: "65%",
-        left: "20%"
+        left: "28%"
       },
       transButton6: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
         top: "73%",
-        left: "22%"
+        left: "29%"
       },
       transButton7: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
         top: "65%",
-        left: "70%"
+        left: "77%"
       },
       transButton8: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
         top: "73%",
-        left: "68%"
+        left: "75%"
       },
       addContainer: {
         position: "absolute",

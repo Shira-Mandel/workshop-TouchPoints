@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { Text, StyleSheet, View, ImageBackground, Dimensions} from "react-native";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
 import NextButton from "../components/NextButton";
 import Confetti from "../animations/Confetti";
 import Crocodiles from "../components/Crocodiles";
+import { Video } from 'expo-av';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
@@ -16,6 +18,12 @@ const BigSmallDigitScreen2 = ({navigation, route}) => {
 
     return <ImageBackground style={styles.bgimage} source={require("../../assets/lake.png")} resizeMode="stretch"> 
         <Confetti rewardState={rewardState}/>
+        {<Video
+                source={require("../../assets/sounds/crocs-stage2.mp4")}
+                shouldPlay={counter==0}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls ={false}/>}
         <HomeButton style={{top: "1.5%", left: "1%"}} onPress={() => {navigation.navigate('Home')}}/>
         <View style={styles.addContainerLeft}>
          {route.params.arr[counter].first}
@@ -47,7 +55,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: isMobile? "30%" : "42%",
     height: "50%",
-    //aspectRatio: 1/1,
     justifyContent: "center",
     top: "15%",
     left: isMobile? "65%" : "63%",
@@ -59,7 +66,6 @@ const styles = StyleSheet.create({
 addContainerLeft: {
   position: "absolute",
   height: "50%",
-  //aspectRatio: 1/1,
   width: isMobile? "30%" : "42%",
   justifyContent: "center",
   top: "15%",

@@ -1,7 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image, Text, Dimensions} from "react-native";
-import ButtonsMenu from "../components/ButtonsMenu"
-import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 import { BlurView } from 'expo-blur';
 import normalize from "react-native-normalize";
 const windowWidth = Dimensions.get('window').width;

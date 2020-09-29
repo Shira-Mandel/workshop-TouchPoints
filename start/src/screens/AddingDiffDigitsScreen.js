@@ -1,14 +1,13 @@
-import React, {useState, useEffect} from "react";
-import { Text, StyleSheet, View, TouchableOpacity,ImageBackground, Image} from "react-native";
-import ButtonsMenu from "../components/HomeButton"
-import { Col, Row, Grid } from "react-native-easy-grid";
+import React, {useState} from "react";
+import { StyleSheet, View, ImageBackground } from "react-native";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
-import shuffleDeck from "../menus/HomeScreen";
 import NextButton from "../components/NextButton";
 import Confetti from "../animations/Confetti";
 import AddingPair from "../components/AddingPair";
 import NumbersLine from "../components/NumbersLine";
+import { Video } from 'expo-av';
+
 
 
 const AddingDiffDigitsScreen = ({navigation, route}) => {
@@ -17,12 +16,18 @@ const AddingDiffDigitsScreen = ({navigation, route}) => {
     const [isDisabled, setIsDisabled] = useState(true);
     const [disabled1, set1Disabled] = useState(true);
     const [disabled2, set2Disabled] = useState(true);
-
+    
     return <View style={styles.mainContainer}>
     <ImageBackground style={styles.bgimage} source={require("../../assets/try2.png")} resizeMode="contain">
         <Confetti rewardState={rewardState}/>
         <HomeButton style={{top: "3%", left: "1%"}} onPress= {() => {navigation.navigate('Home')}}/>
-        <AddingPair disabled1={disabled1} set1={() => set1Disabled(false)} set2={() => set2Disabled(false)} disabled2={disabled2} isFirstBigger={route.params.arr[counter].flag} first={route.params.arr[counter].first} second={route.params.arr[counter].second} setReward={() => setRewardState('reward')} result={route.params.arr[counter].value}/>
+        {<Video
+                source={require("../../assets/sounds/continue-count.mp4")}
+                shouldPlay={counter==0}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls ={false}/>}
+        <AddingPair disabled1={disabled1} set1={() => set1Disabled(false)} set2={() => set2Disabled(false)} disabled2={disabled2} isFirstBigger={route.params.arr[counter].flag} first={route.params.arr[counter].first} second={route.params.arr[counter].second} result={route.params.arr[counter].value}/>
         <NextButton disabled={isDisabled} onPress= {() => {
             if (counter > 3)
             {
@@ -40,7 +45,7 @@ const AddingDiffDigitsScreen = ({navigation, route}) => {
         <NumbersLine result={route.params.arr[counter].value.toString()} setRewardState={() => {
           setIsDisabled(false)
           setRewardState('reward')
-        }}/>
+        }} rewardState={rewardState}/>
         </ImageBackground>
          </View>
 };

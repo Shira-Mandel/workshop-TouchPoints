@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Dimensions, StyleSheet, View, Image} from "react-native";
 import ButtonsMenu from "../components/ButtonsMenu"
 import normalize from "react-native-normalize";

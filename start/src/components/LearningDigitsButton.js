@@ -1,9 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import { StyleSheet, View, TouchableOpacity, Text, Dimensions} from "react-native";
 import ButtonsMenu from "../components/ButtonsMenu"
-import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 import { BlurView } from 'expo-blur';
-import normalize from "react-native-normalize";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;
@@ -32,10 +30,12 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
       left: "5%", 
       top:  "5%",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5,
       position: "absolute"
     },
     buttonMenu2: {
@@ -43,10 +43,12 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
       left: "36%", 
       top: "5%",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5,
       position: "absolute"
     },
     buttonMenu3: {
@@ -54,10 +56,12 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
       right: "5%", 
       top: "5%",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5,
       position: "absolute"
     },
     buttonMenu4: {
@@ -65,10 +69,12 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
       left: "5%", 
       top: "36%",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5,
       position: "absolute"
     },
     buttonMenu5: {
@@ -76,10 +82,12 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
       left: "36%", 
-      top: "36%", 
+      top: "36%",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5, 
       position: "absolute"
     },
     buttonMenu6: {
@@ -87,10 +95,12 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
       right: "5%", 
-      top: "36%", 
+      top: "36%",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5, 
       position: "absolute"
     },
     buttonMenu7: {
@@ -98,10 +108,12 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
       left: "5%", 
-      bottom: "5%", 
+      bottom: "5%",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5, 
       position: "absolute"
     },
     buttonMenu8: {
@@ -109,10 +121,12 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
       left: "36%", 
-      bottom: "5%", 
+      bottom: "5%",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5, 
       position: "absolute"
     },
     buttonMenu9: {
@@ -120,8 +134,10 @@ const LearningDigitsButton = ({onPress, style}) => {
       height: '28%',
       borderRadius: 10,
       zIndex: 1,
-      borderWidth: 0.5,
-      borderColor: "grey",
+      backgroundColor: "#99ccff",
+      shadowOffset: { width: 0.5 },
+      shadowRadius: 2,
+      shadowOpacity: 0.5,
       right: "5%", 
       bottom: "5%", 
       position: "absolute"

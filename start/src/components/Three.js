@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from "react";
-import { Button, Text, StyleSheet, View, Image, ImageBackground, Dimensions} from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, ImageBackground, Dimensions} from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import normalize from "react-native-normalize";
 import Point from "./Point";
 import Confetti from "../animations/Confetti";
+import { Video } from 'expo-av';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -11,17 +12,21 @@ const isMobile = windowWidth <= 812 && true;
 
 const Three = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
     const [counter, setCounter] = useState(3);
-    const [ isPress, setIsPress ] = useState(false);
     const [rewardState, setRewardState] = useState('rest');
     
     if (disabled) {
       return <ImageBackground style={styles.bgimageAdd} source={require("../../assets/number3.png")} resizeMode="contain">
   </ImageBackground>
     }
-    // return <View style={isAdd? isRight? styles.addContainerLeft  : styles.addContainer : styles.mainContainer}>
     return <ImageBackground style={isAdd? styles.bgimageAdd : styles.bgimage} source={
             isNaked ? rewardState == 'reward' ? require("../../assets/kid3.png") : require("../../assets/number3.png") : isAdd ? require("../../assets/number3.png") : rewardState == 'reward' ? require("../../assets/kid3.png") : require("../../assets/kid-point3.png")} resizeMode="contain">
         <Confetti rewardState={rewardState}/>
+        <Video
+                source={require("../../assets/sounds/3.mp4")}
+                shouldPlay={rewardState=='reward'}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls={false}/>
         <Point 
             unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
             pressedStyle={isNaked? styles.button1 : {}}
@@ -79,7 +84,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         height: "100%",
         aspectRatio: 1/1,
-        //width: wp('80%'),
         shadowColor: "#36393d",
         shadowOffset: { width: 1 },
         shadowRadius: 5,
@@ -116,7 +120,6 @@ const styles = StyleSheet.create({
       },
       transButton1: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -125,7 +128,6 @@ const styles = StyleSheet.create({
       },
       transButton2: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -134,7 +136,6 @@ const styles = StyleSheet.create({
       },
       transButton3: {
         position: "absolute",
-        //backgroundColor: "yellow",
         aspectRatio: 1 / 1,
         height: '10%',
         borderRadius: normalize(35),
@@ -152,7 +153,6 @@ const styles = StyleSheet.create({
     },
     bgimageAdd: {
         height: "100%",
-        //bottom: "10%",
         left: isMobile? "0%" : "5%",
         aspectRatio: 1/1,
         shadowColor: "#36393d",

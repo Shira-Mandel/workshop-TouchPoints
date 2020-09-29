@@ -1,37 +1,51 @@
 import React,{useState, useEffect}  from "react";
-import { Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
-//import { Feather } from 'expo/vector-icons'
-//import { IconButton } from "react-native-paper";
+import {Dimensions, TouchableOpacity} from "react-native";
 import { Ionicons,Feather } from "@expo/vector-icons";
-import normalize from "react-native-normalize";
+import { Video } from 'expo-av';
 
-const images = [
-  {source: require("../../../assets/circle.png")},
-  {source: require("../../../assets/circle.png")}
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const isMobile = windowWidth <= 812 && true;
+const rewardSounds = [<Video
+  source={require("../../../assets/sounds/yofi.mp4")}
+  shouldPlay={true}
+  volume={0.1}
+  useNativeControls ={false}/>, 
+  <Video
+  source={require("../../../assets/sounds/kol-hakavod.mp4")}
+  shouldPlay={true}
+  volume={0.1}
+  useNativeControls ={false}/>,
+  <Video
+  source={require("../../../assets/sounds/yafeh-meod.mp4")}
+  shouldPlay={true}
+  isLooping={false}
+  volume={0.1}
+  useNativeControls ={false}/>,
+  <Video
+  source={require("../../../assets/sounds/metzuyan.mp4")}
+  shouldPlay={true}
+  isLooping={false}
+  volume={0.1}
+  useNativeControls ={false}/>
+];
 
-]
-const Circle = ({style, count, setCounter, setRewardState, flag}) => {
+const Circle = ({rewardState, style, count, setCounter, setRewardState, flag}) => {
     const [isPress, setIsPress] = useState(false);
-    const [image, setImage] = useState(images[0].source);
 
     useEffect(() => {
-      
-      if (isPress)
-      {
-        setImage(images[1].source);
-      }
       if (count == 0)
       {
         setRewardState();
       }
     }, [isPress]);
 
-        return <TouchableOpacity style={style/*{position: 'absolute', zIndex: 1, backgroundColor: 'black'}*/} onPress = {() => {
+        return <TouchableOpacity style={style} onPress = {() => {
           setIsPress(true);
           setCounter();
         }} disabled={isPress}>
-          <Feather name="circle" size={100} color={isPress && flag ? 'green' : 'black'}/>
-          {/* <Image style={style} source = {image}/> */}
+          {/* {rewardState=='reward' ? sound : null} */}
+          <Feather name="circle" size={isMobile? 100 : 200} color={isPress && flag ? 'green' : 'black'}/>
       </TouchableOpacity>
     }
 

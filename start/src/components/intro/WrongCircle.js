@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
-import { Text, Dimensions, View, StyleSheet, TouchableOpacity} from "react-native";
+import React from "react";
+import { Dimensions, StyleSheet, TouchableOpacity} from "react-native";
 import * as Animatable from 'react-native-animatable';
-import { Ionicons,Feather } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true;

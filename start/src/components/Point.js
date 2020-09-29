@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {TouchableOpacity, StyleSheet} from "react-native";
-import { Video, Audio } from 'expo-av';
+import { Video } from 'expo-av';
 
 
 

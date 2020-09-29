@@ -1,19 +1,41 @@
-import React, {useState, useEffect} from "react";
-import { StyleSheet, View, Dimensions, Image, ImageBackground } from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, View, Dimensions, Image } from "react-native";
 import Draggable from 'react-native-draggable';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import normalize from "react-native-normalize";
-import Point from "./Point";
-import Confetti from "../animations/Confetti";
+import { Video } from 'expo-av';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const isMobile = windowWidth <= 812 && true; 
+const rewardSounds = [<Video
+    source={require("../../assets/sounds/yofi.mp4")}
+    shouldPlay={true}
+    volume={0.1}
+    useNativeControls ={false}/>, 
+    <Video
+    source={require("../../assets/sounds/kol-hakavod.mp4")}
+    shouldPlay={true}
+    volume={0.1}
+    useNativeControls ={false}/>,
+    <Video
+    source={require("../../assets/sounds/yafeh-meod.mp4")}
+    shouldPlay={true}
+    isLooping={false}
+    volume={0.1}
+    useNativeControls ={false}/>,
+    <Video
+    source={require("../../assets/sounds/metzuyan.mp4")}
+    shouldPlay={true}
+    isLooping={false}
+    volume={0.1}
+    useNativeControls ={false}/>
+  ];
 
 const Crocodiles = ({isStage2, isLeftBigger, setReward, reward, enableNext}) => {
     const [isLeftComplete, setIsLeftComplete] = useState(false);
     const [isRightComplete, setIsRightComplete] = useState(false);
     const [imageSource, setImageSource] = useState("");
+    const sound = rewardSounds[Math.floor(Math.random() * 5)]
 
     if (reward == 'rest') {
         return <View style={styles.mainContainer}>
@@ -43,6 +65,7 @@ const Crocodiles = ({isStage2, isLeftBigger, setReward, reward, enableNext}) => 
 
     if (isLeftComplete || isRightComplete) {
         return <View style={styles.mainContainer}>
+                    {sound}
         <View style={styles.draggableContainer}>
         <Image resizeMode="contain" style={styles.imageAfter} source={imageSource}/>
             </View>

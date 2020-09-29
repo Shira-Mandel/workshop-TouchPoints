@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Dimensions, StyleSheet, View, Image} from "react-native";
 import ButtonsMenu from "../components/ButtonsMenu"
 import normalize from "react-native-normalize";
@@ -19,11 +19,7 @@ const AddingNumbersScreen = ({navigation, route}) => {
   return <View style={{height: '100%', width: '100%'}}>
     <Image style={{zIndex: 1, height: "30%", width: '100%', alignSelf: "center"}} resizeMode="contain" source={require('../../assets/header.png')}/>
     <BigSmallButton style={styles.buttonMenu1} onPress={() => {
-      //route.params.pause()
       navigation.navigate('BigSmallMenu', {play: () => route.params.play(), pause: () => route.params.pause(), arr: route.params.arr})}}/>
-    {/* <ButtonsMenu resize="cover" source={require("../../assets/images/alice.jpg")} style={styles.buttonMenu1} title = "גדול קטן" navigate={() => {
-      //route.params.pause()
-      navigation.navigate('BigSmallMenu', {play: () => route.params.play(), pause: () => route.params.pause(), arr: route.params.arr})}}/> */}
     <ButtonsMenu resize="contain" source={require("../../assets/addIcon.png")} style={styles.buttonMenu2} title = "חיבור" navigate = {() => {
       route.params.pause();
       navigation.navigate('AddingDiffDigits', {arr: route.params.arr})}}/>

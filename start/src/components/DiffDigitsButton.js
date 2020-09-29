@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image, Text, Dimensions} from "react-native";
 import BigSmallButton from "../components/BigSmallButton"
-import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 import { BlurView } from 'expo-blur';
 import normalize from "react-native-normalize";
 const windowWidth = Dimensions.get('window').width;
@@ -48,8 +47,8 @@ const DiffDigitsButton = ({onPress, style}) => {
         borderRadius: normalize(5),
         zIndex: 1,
         shadowOffset: { width: 0.5 },
-    shadowRadius: 5,
-    shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOpacity: 0.5,
         right: "5%", 
         top: "30%",
         position: "absolute"

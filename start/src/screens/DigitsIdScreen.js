@@ -1,5 +1,5 @@
-import React, {setProps, useState, useEffect} from "react";
-import { Button, StyleSheet, View,TouchableOpacity, ImageBackground} from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, ImageBackground} from "react-native";
 import normalize from "react-native-normalize";
 import HomeButton from "../components/HomeButton";
 import Hint from "../components/Hint";
@@ -13,6 +13,7 @@ import Six from "../components/Six";
 import Seven from "../components/Seven";
 import Eight from "../components/Eight";
 import Nine from "../components/Nine";
+import { Video } from 'expo-av';
 
 const shuffleDeck = (array) => {
   let i = array.length - 1;
@@ -46,6 +47,12 @@ const DigitsIdScreen = ({navigation, route}) => {
             <HomeButton onPress={() => {navigation.navigate('Home')}}/>
             <Hint currDigit={patterns[counter].type}/>
             <Curr isNaked={true} enableNext={() => setIsDisabled(false)}></Curr>
+            {<Video
+                source={require("../../assets/sounds/numbers-id.mp4")}
+                shouldPlay={counter==0}
+                isLooping={false}
+                volume={0.1}
+                useNativeControls ={false}/>}
             <NextButton disabled={isDisabled} onPress={() => {
               if (counter >= 8)
               {

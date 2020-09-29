@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View, Image, TouchableOpacity} from "react-native";
+import { Text, StyleSheet, Image, TouchableOpacity} from "react-native";
 
 const DigitsButtonsMenu = ({title, navigation, digit}) => {
     return <TouchableOpacity onPress = {

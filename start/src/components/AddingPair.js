@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from "react";
-import { TouchableOpacity, Button, Text, StyleSheet, View, Image, ImageBackground, Dimensions} from "react-native";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import React from "react";
+import { TouchableOpacity, StyleSheet, View, Dimensions} from "react-native";
 import normalize from "react-native-normalize";
 import Three from "./Three";
-import NumbersLine from "./NumbersLine";
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
