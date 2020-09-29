@@ -28,7 +28,7 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
                 volume={0.1}
                 useNativeControls={false}/>
     <Point 
-        unpressedStyle={isNaked? styles.transButton1 : styles.button1} 
+        unpressedStyle={isNaked? isAdd? styles.addButton1 : styles.transButton1 : styles.button1} 
         pressedStyle={isNaked? styles.button1 : {}}
         isAdd={isAdd}
         setCounter={() => setCounter(counter - 1)} 
@@ -39,7 +39,7 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
           setRewardState('reward')}} 
         count={counter}/>
     <Point 
-        unpressedStyle={isNaked? styles.transButton2 : styles.button2} 
+        unpressedStyle={isNaked?  isAdd? styles.addButton2 : styles.transButton2 : styles.button2} 
         pressedStyle={isNaked? styles.button2 : {}}
         isAdd={isAdd}
         setCounter={() => setCounter(counter - 1)} 
@@ -50,7 +50,7 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
           setRewardState('reward')}} 
         count={counter}/>
     <Point 
-        unpressedStyle={isNaked? styles.transButton3 : styles.button3} 
+        unpressedStyle={isNaked? isAdd? styles.addButton3 : styles.transButton3 : styles.button3} 
         pressedStyle={isNaked? styles.button3 : {}}
         isAdd={isAdd}
         setCounter={() => setCounter(counter - 1)} 
@@ -61,7 +61,7 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
           setRewardState('reward')}} 
         count={counter}/>
     <Point 
-        unpressedStyle={isNaked? styles.transButton4 : styles.button4} 
+        unpressedStyle={isNaked? isAdd? styles.addButton4 : styles.transButton4 : styles.button4} 
         isAdd={isAdd}
         pressedStyle={isNaked? styles.button4 : {}}
         setCounter={() => setCounter(counter - 1)} 
@@ -72,7 +72,7 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
           setRewardState('reward')}} 
         count={counter}/>
     <Point 
-        unpressedStyle={isNaked? styles.transButton5 : styles.button5} 
+        unpressedStyle={isNaked? isAdd? styles.addButton5 : styles.transButton5 : styles.button5} 
         isAdd={isAdd}
         pressedStyle={isNaked? styles.button5 : {}}
         setCounter={() => setCounter(counter - 1)} 
@@ -83,7 +83,7 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
           setRewardState('reward')}} 
         count={counter}/>
     <Point 
-        unpressedStyle={isNaked? styles.transButton6 : styles.button6} 
+        unpressedStyle={isNaked?  isAdd? styles.addButton6 : styles.transButton6 : styles.button6} 
         isAdd={isAdd}
         pressedStyle={isNaked? styles.button6 : {}}
         setCounter={() => setCounter(counter - 1)} 
@@ -94,7 +94,7 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
           setRewardState('reward')}} 
         count={counter}/>
     <Point 
-        unpressedStyle={isNaked? styles.transButton7 : styles.button7} 
+        unpressedStyle={isNaked? isAdd? styles.addButton7 : styles.transButton7 : styles.button7} 
         isAdd={isAdd}
         pressedStyle={isNaked? styles.button7 : {}}
         setCounter={() => setCounter(counter - 1)} 
@@ -105,7 +105,7 @@ const Eight = ({disabled, isRight, isAdd, onPress, isNaked, enableNext}) => {
           setRewardState('reward')}} 
         count={counter}/>
     <Point 
-        unpressedStyle={isNaked? styles.transButton8 : styles.button8} 
+        unpressedStyle={isNaked? isAdd? styles.addButton8 : styles.transButton8 : styles.button8} 
         pressedStyle={isNaked? styles.button8 : {}}
         isAdd={isAdd}
         setCounter={() => setCounter(counter - 1)} 
@@ -268,6 +268,80 @@ const styles = StyleSheet.create({
         top: "73%",
         left: "81%"
       },
+      addButton1: {
+        position: "absolute",
+        aspectRatio: 1 / 1,
+        backgroundColor: "yellow",
+        height: '10%',
+        borderRadius: normalize(35),
+        top: "23%",
+        left: "22%"
+      },
+      addButton2: {
+        position: "absolute",
+        aspectRatio: 1 / 1,
+        backgroundColor: "yellow",
+        height: '10%',
+        borderRadius: normalize(35),
+        top: "31%",
+        left: "24%"
+      }, 
+      addButton3: {
+        position: "absolute",
+        aspectRatio: 1 / 1,
+        backgroundColor: "yellow",
+        height: '10%',
+        borderRadius: normalize(35),
+        top: "23%",
+        left: "69%"
+      },
+      addButton4: {
+        position: "absolute",
+        backgroundColor: "yellow",
+        aspectRatio: 1 / 1,
+        height: '10%',
+        borderRadius: normalize(35),
+        top: "31%",
+        left: "67%"
+      },
+      addButton5: {
+        position: "absolute",
+        aspectRatio: 1 / 1,
+        backgroundColor: "yellow",
+        height: '10%',
+        borderRadius: normalize(35),
+        top: "65%",
+        left: "22%"
+      },
+      addButton6: {
+        position: "absolute",
+        
+        aspectRatio: 1 / 1,
+        backgroundColor: "yellow",
+
+        height: '10%',
+        borderRadius: normalize(35),
+        top: "73%",
+        left: "23%"
+      },
+      addButton7: {
+        position: "absolute",
+        aspectRatio: 1 / 1,
+        backgroundColor: "yellow",
+        height: '10%',
+        borderRadius: normalize(35),
+        top: "65%",
+        left: "71%"
+      },
+      addButton8: {
+        position: "absolute",
+        aspectRatio: 1 / 1,
+        backgroundColor: "yellow",
+        height: '10%',
+        borderRadius: normalize(35),
+        top: "73%",
+        left: "69%"
+      },
       addContainer: {
         position: "absolute",
         width: isMobile? "15%" : "25%",
@@ -275,14 +349,13 @@ const styles = StyleSheet.create({
         borderRadius: 150,
         backgroundColor: "pink",
         top: isMobile? "22%" : "22%",
-        left: isMobile? "52%" : "54%",
+        left: isMobile? "54%" : "54%",
     },
     bgimageAdd: {
       margin: "2%",
-      height: "98%",
       aspectRatio: 1/1,
       shadowColor: "#36393d",
-    },
+  },
     addContainerLeft: {
       position: "absolute",
       width: isMobile? "15%" : "25%",

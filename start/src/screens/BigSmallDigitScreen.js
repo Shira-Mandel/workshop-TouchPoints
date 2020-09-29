@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1/1,
     justifyContent: "center",
     top: isMobile? "15%" : "15%",
-    left: isMobile? "70%" : "63%",
+    left: isMobile? "63%" : "63%",
     shadowColor: "#36393d",
     shadowOffset: { width: 1 },
     shadowRadius: 5,
