@@ -20,7 +20,7 @@ const IntroButton = ({noText, onPress, style}) => {
              <Image style={styles.img} resizeMode="cover" source={require("../../assets/images/memAidIcon.png")}/>
             </View>
       </BlurView>
-      <Text style={styles.text}>ספרות שונות</Text>
+      <Text style={styles.text}>קווים ועיגולים</Text>
       </View>
   };
   

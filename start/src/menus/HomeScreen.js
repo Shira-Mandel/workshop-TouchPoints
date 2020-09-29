@@ -104,8 +104,6 @@ React.useEffect(
   <Image style={{zIndex: 1, height: "30%", width: '100%', alignSelf: "center"}} resizeMode="contain" source={require('../../assets/header.png')}/>
       <IntroButton onPress={() => 
         navigation.navigate('Intro', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})} style={styles.buttonMenu1}/>
-      {/* <ButtonsMenu resize="cover" source={require("../../assets/images/joey.png")} style={styles.buttonMenu1} title="מבוא" navigate={() => 
-        navigation.navigate('Intro', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})}/> */}
       <LearningDigitsButton onPress={() => navigation.navigate('LearningDigitsMenu', {play: () => setIsPlay(true), pause: () => setIsPlay(false)})} style={styles.buttonMenu2}/>
       <ButtonsMenu resize="cover" source={require("../../assets/images/digitsIDIcon.png")} style={styles.buttonMenu3} title = "שיום ספרות" navigate = {() => {
         setIsPlay(false);

@@ -67,12 +67,6 @@ return <View style={styles.mainContainer}>
             }
             setRewardState('reward')}} count={counter}/>
         </ImageBackground>
-        {/* <ImageBackground style={styles.bgimage2} source={rewardState == 'reward' ? require("../../../assets/CircleHead2.png") : require("../../../assets/CircleHead.png")} resizeMode="contain">
-          <Point unpressedStyle={styles.button1} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
-          <Point unpressedStyle={styles.button2} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
-          <Point unpressedStyle={styles.button3} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
-          <Point unpressedStyle={styles.button5} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => setRewardState('reward')} count={counter}/>
-        </ImageBackground> */}
         <ImageBackground style={styles.bgimage3} source={rewardState == 'reward' ? require("../../../assets/CircleHead2.png") : require("../../../assets/CircleHead.png")} resizeMode="contain">
           <Point unpressedStyle={styles.button1} setCounter={() => setCounter(counter - 1)} setRewardState={(rewardState) => {
             if (enableNext != null) {
@@ -120,15 +114,12 @@ bgimage1: {
 },
 bgimage2: {
   position: "absolute",
-  //marginTop: isMobile ? '2%' : '6%',
-  //borderRadius: 20,
   height: isMobile? "70%" : "70%",
   width:  isMobile? "60%" : "60%",
   top:isMobile? "45%": "45%",
   left:isMobile?"36%":"36%",
   shadowColor: "#36393d",
   shadowOffset: { width: 1 },
-  //shadowRadius: 5,
   shadowOpacity: 1,
 },
 bgimage3: {
@@ -149,38 +140,38 @@ button1: {
     position: "absolute",
     backgroundColor: "black",
     borderRadius: normalize(35),
-    left: isMobile ? '6%' : '2%',
+    left: isMobile ? '9%' : '2%',
     top: isMobile ? "31%" : '32%',
-    width: isMobile ? 30 : 51,
-    height: isMobile ? 30 : 51,
+    aspectRatio: 1 / 1,
+    height: '11%',
   },
 
   button2: {
     position: "absolute",
     backgroundColor: "black",
     borderRadius: normalize(35),
-    left: isMobile ? '6%' : '2%',
+    left: isMobile ? '9%' : '2%',
     top: isMobile ? "40%" : '40%',
-    width: isMobile ? 30 : 51,
-    height: isMobile ? 30 : 51,
+    aspectRatio: 1 / 1,
+    height: '11%',
   },
   button3: {
       position: "absolute",
       backgroundColor: "black",
       borderRadius: normalize(35),
-      left: isMobile ? '43%' : '46%',
+      left: isMobile ? '42%' : '46%',
       top: isMobile ? "40%" : '39%',
-      width: isMobile ? 30 : 51,
-      height: isMobile ? 30 : 51,
+      aspectRatio: 1 / 1,
+      height: '11%',
     },
     button4: {
         position: "absolute",
         backgroundColor: "black",
         borderRadius: normalize(35),
-        left: isMobile ? '43%' : '46%',
+        left: isMobile ? '42%' : '46%',
         top: isMobile ? "31%" : '32%',
-        width: isMobile ? 30 : 51,
-        height: isMobile ? 30 : 51,
+        aspectRatio: 1 / 1,
+        height: '11%',
         zIndex: 1
       },
 });

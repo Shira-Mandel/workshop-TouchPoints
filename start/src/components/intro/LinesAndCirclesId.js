@@ -42,7 +42,7 @@ const LinesAndCirclesId = ({enableNext}) => {
           <Confetti rewardState={rewardState}/>
           {rewardState=='reward' ? sound : null}
           <Video
-                source={require("../../../assets/sounds/yofi.mp4")}
+                source={require("../../../assets/sounds/touch-lines-circles.mp4")}
                 shouldPlay={true}
                 isLooping={false}
                 volume={0.1}
